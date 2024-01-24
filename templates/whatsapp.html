@@ -1,0 +1,9 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'staticfiles/css/whatsapp.css' %}">
+
+<div id="whatsapp" class="floating-btnz">
+    <a href="{% url 'whatsapp_message' event.contact.pk %}" target="_blank" style="color: white;">
+        <i class="bi bi-whatsapp"></i>
+    </a>
+</div>

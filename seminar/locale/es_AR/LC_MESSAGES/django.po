@@ -1,0 +1,350 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-16 17:20-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: admin.py:22 admin.py:100
+msgid "Is full"
+msgstr "Completo"
+
+#: admin.py:27
+msgid "Yes"
+msgstr "Si"
+
+#: admin.py:28
+msgid "No"
+msgstr "No"
+
+#: admin.py:96
+msgid "Available space"
+msgstr "Cupo disponible"
+
+#: admin.py:104
+msgid "Special price"
+msgstr "Precio especial"
+
+#: admin.py:121
+msgid "Search by academy, dancer's first or last name."
+msgstr "Buscar por academia, nombre o apellido del bailarín."
+
+#: admin.py:126 admin.py:310
+msgid "Export to Excel"
+msgstr "Exportar a Excel"
+
+#: admin.py:131
+msgid "Seminar registrations list"
+msgstr "Lista de inscripciones a seminario"
+
+#: admin.py:134 admin.py:321
+msgid "Academy"
+msgstr "Academia"
+
+#: admin.py:135
+msgid "Dancer ID"
+msgstr "ID del bailarín"
+
+#: admin.py:136
+msgid "Dancer name"
+msgstr "Nombre del bailarín"
+
+#: admin.py:137
+msgid "Seminars"
+msgstr "Seminarios"
+
+#: admin.py:138
+msgid "Price per seminar"
+msgstr "Precio por seminario"
+
+#: admin.py:139 templates/seminar/seminar_registration_form.html:45
+msgid "Total"
+msgstr "Total"
+
+#: admin.py:140
+msgid "Paid amount"
+msgstr "Monto pagado"
+
+#: admin.py:141 admin.py:274
+#: templates/seminar/seminar_registration_form.html:47
+msgid "Balance"
+msgstr "Saldo"
+
+#: admin.py:254 admin.py:319 templates/seminar/seminar_list.html:23
+#: templates/seminar/seminar_registration_form.html:9
+msgid "Teacher"
+msgstr "Instructor"
+
+#: admin.py:258 templates/seminar/seminar_list.html:25
+#: templates/seminar/seminar_list.html:27
+msgid "Date and time"
+msgstr "Fecha y hora"
+
+#: admin.py:262
+msgid "Fully paid"
+msgstr "Pagado"
+
+#: admin.py:266
+msgid "Deposit paid"
+msgstr "Señado"
+
+#: admin.py:270
+msgid "Total price"
+msgstr "Monto total"
+
+#: admin.py:297
+msgid "Search by academy, date, dancer's first or last name."
+msgstr "Buscar por academia, fecha, nombre o apellido del bailarín."
+
+#: admin.py:302
+msgid "Seminar"
+msgstr "Seminario"
+
+#: admin.py:306 admin.py:320
+#: templates/seminar/seminar_registration_form.html:44
+msgid "Dancer"
+msgstr "Bailarín"
+
+#: admin.py:315
+msgid "Seminar payments list"
+msgstr "Lista de pagos de seminarios"
+
+#: admin.py:318 templates/seminar/seminar_registration_form.html:15
+msgid "Date"
+msgstr "Fecha"
+
+#: admin.py:322
+msgid "Amount"
+msgstr "Monto"
+
+#: admin.py:323
+msgid "Payment method"
+msgstr "Forma de pago"
+
+#: admin.py:333
+#, python-format
+msgid "%(count)d selected payment - Total $ %(amount)s"
+msgid_plural "%(count)d selected payments - Total $ %(amount)s"
+msgstr[0] "%(count)d pago seleccionado - Total $ %(amount)s"
+msgstr[1] "%(count)d pagos seleccionados - Total $ %(amount)s"
+
+#: forms.py:73
+msgid "The selected dancer is already registered in this seminar."
+msgstr "El bailarín seleccionado ya está inscripto en este seminario."
+
+#: forms.py:127 forms.py:148
+msgid ""
+"The payments total amount cannot be greater than the seminar registration "
+"total price."
+msgstr "El monto total de los pagos no puede ser mayor al precio total de la inscripción."
+
+#: models.py:14
+msgid "Special"
+msgstr "Especial"
+
+#: models.py:15
+msgid "Normal"
+msgstr "Normal"
+
+#: models.py:32
+msgid "price type"
+msgstr "tipo de precio"
+
+#: models.py:35
+msgid "one registration price"
+msgstr "precio por una inscripción"
+
+#: models.py:38
+msgid "two registrations price"
+msgstr "precio por dos inscripciones"
+
+#: models.py:41
+msgid "more registrations price"
+msgstr "precio a partir de las tres inscripciones"
+
+#: models.py:47
+msgid "seminar price"
+msgstr "precio de seminario"
+
+#: models.py:48
+msgid "seminar prices"
+msgstr "precios de seminario"
+
+#: models.py:66
+msgid "event"
+msgstr "evento"
+
+#: models.py:68
+msgid "teacher"
+msgstr "instructor"
+
+#: models.py:69
+msgid "quota"
+msgstr "cupo"
+
+#: models.py:74
+msgid "price"
+msgstr "precio"
+
+#: models.py:77
+msgid "deposit percentage"
+msgstr "porcentaje de seña"
+
+#: models.py:81
+msgid "The value cannot be higher than 100."
+msgstr "El valor no puede ser mayor a 100."
+
+#: models.py:85 models.py:243
+msgid "date"
+msgstr "fecha"
+
+#: models.py:87
+msgid "time"
+msgstr "hora"
+
+#: models.py:88
+msgid "Time format must be hh:mm."
+msgstr "El formato de la hora debe ser hh:mm."
+
+#: models.py:92
+msgid "teacher picture"
+msgstr "foto del instructor"
+
+#: models.py:98
+msgid "registration end date"
+msgstr "fecha de finalización de inscripciones"
+
+#: models.py:103 models.py:161
+msgid "seminar"
+msgstr "seminario"
+
+#: models.py:104
+msgid "seminars"
+msgstr "seminarios"
+
+#: models.py:148
+msgid "academy"
+msgstr "academia"
+
+#: models.py:154
+msgid "dancer"
+msgstr "bailarín"
+
+#: models.py:167 models.py:235
+msgid "seminar registration"
+msgstr "inscripción a seminario"
+
+#: models.py:168
+msgid "seminar registrations"
+msgstr "inscripciones a seminario"
+
+#: models.py:237
+msgid "amount"
+msgstr "monto"
+
+#: models.py:239
+msgid "payment method"
+msgstr "forma de pago"
+
+#: models.py:248
+msgid "seminar payment"
+msgstr "pago de inscripción a seminario"
+
+#: models.py:249
+msgid "seminar payments"
+msgstr "pagos de inscripción a seminario"
+
+#: templates/seminar/seminar_list.html:13
+msgid "Registration ended"
+msgstr "Inscripción cerrada"
+
+#: templates/seminar/seminar_list.html:13
+msgid "Full"
+msgstr "Completo"
+
+#: templates/seminar/seminar_list.html:27
+#: templates/seminar/seminar_registration_form.html:19
+#: templates/seminar/seminar_registration_form.html:29
+msgid "not set yet"
+msgstr "sin definir"
+
+#: templates/seminar/seminar_list.html:37
+msgid "There are no seminars registered for the selected event"
+msgstr "No existen seminarios registrados para el evento seleccionado"
+
+#: templates/seminar/seminar_list.html:38
+#: templates/seminar/seminar_registration_form.html:116
+msgid "Go back"
+msgstr "Volver"
+
+#: templates/seminar/seminar_registration_form.html:25
+msgid "Time"
+msgstr "Hora"
+
+#: templates/seminar/seminar_registration_form.html:46
+msgid "Deposit"
+msgstr "Seña"
+
+#: templates/seminar/seminar_registration_form.html:60
+msgid "Delete"
+msgstr "Eliminar"
+
+#: templates/seminar/seminar_registration_form.html:75
+#: templates/seminar/seminar_registration_form.html:84
+msgid "Paid"
+msgstr "Pagado"
+
+#: templates/seminar/seminar_registration_form.html:102
+msgid "Add dancer"
+msgstr "Agregar bailarín"
+
+#: views.py:44
+msgid "Seminar list"
+msgstr "Lista de seminarios"
+
+#: views.py:87
+msgid "Seminar registrations"
+msgstr "Inscripciones a seminario"
+
+#: views.py:95
+msgid "Registration for the selected seminar has ended or seminar is full."
+msgstr ""
+"Las inscripciones al seminario seleccionado están cerradas o el seminario "
+"está completo."
+
+#: views.py:113
+msgid "You must select at least one dancer."
+msgstr "Se debe seleccionar al menos un bailarín."
+
+#: views.py:118
+msgid "Successfully added a new registration for the seminar!"
+msgstr "Inscripción a seminario agregada con éxito!"
+
+#: views.py:134
+msgid "You don't have permissions to perform this action."
+msgstr "No tenés permisos para realizar esta acción."
+
+#: views.py:142
+msgid ""
+"The registration could not be deleted because it has at least one related "
+"payment. Please contact us."
+msgstr ""
+"La inscripción no pudo eliminarse porque tiene al menos un pago relacionado. "
+"Por favor comunicate con nosotros."
+
+#: views.py:150
+msgid "Successfully deleted a registration for the seminar!"
+msgstr "Inscripción a seminario eliminada con éxito!"

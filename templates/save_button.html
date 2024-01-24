@@ -1,0 +1,9 @@
+{% load i18n %}
+
+<div class="col">
+    <button type="button" class="btn btn-outline-primary"
+    data-bs-toggle="modal" data-bs-target="#createModal">
+        <i class="bi bi-check2 me-2"></i>{% translate "Save" %}
+    </button>
+    {% include "create_modal.html" %}
+</div>

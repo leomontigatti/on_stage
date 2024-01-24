@@ -1,0 +1,211 @@
+{% extends "card.html" %}
+{% load static i18n %}
+
+{% block card_body %}
+
+    <div class="row gx-2">
+        <div class="col-sm">
+            <div class="input-group pb-2">
+                <span class="input-group-text">{% translate "Category" %}</span>
+                <span class="form-control">{{ object.category }}</span>
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="input-group pb-2">
+                <span class="input-group-text">{% translate "Dance mode" %}</span>
+                <span class="form-control">{{ object.dance_mode }}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row gx-2">
+        <div class="col-sm">
+            <div class="input-group pb-2">
+                <span class="input-group-text">{% translate "Name" %}</span>
+                <span class="form-control">{{ object.name }}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row gx-2 mt-2">
+        <div class="col-sm">
+            {% if object.professors.exists %}
+                <div class="table-responsive">
+                    <table class="table table-striped align-middle text-center">
+                        <thead>
+                            <tr class="dark">
+                                <td scope="col" colspan="3">{% translate "Professors" %}</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for professor in object.professors.all %}
+                                <tr>
+                                    <td>
+                                        <a href="{{ professor.get_absolute_url }}" class="text-decoration-none mx-2">
+                                            {{ professor }}
+                                        </a>
+                                    </td>
+                                    <td>{{ professor.identification_type }} {{ professor.identification_number }}</td>
+                                    <td>
+                                        <a href="{% url 'award_certificate' choreography_pk=object.id sender='professor' sender_pk=professor.pk %}"
+                                        class="btn btn-outline-success btn-sm rounded-circle" target="_blank" data-bs-toggle="tooltip" data-bs-title="{% translate 'Show certificate' %}">
+                                            <i class="bi bi-file-earmark-text-fill"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                <p class="mb-3">
+                    <i class="bi bi-exclamation-circle me-2"></i>
+                    {% translate "The choreography has no related professors yet." %}
+                </p>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="row gx-2">
+        <div class="col-sm">
+            {% if object.dancers.exists %}
+                <div class="table-responsive">
+                    <table class="table table-striped align-middle text-center">
+                        <thead>
+                            <tr class="dark">
+                                <td scope="col" colspan="3">{% translate "Dancers" %}</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for dancer in object.dancers.all %}
+                                <tr>
+                                    <td>
+                                        <a href="{{ dancer.get_absolute_url }}" class="text-decoration-none mx-2">
+                                            {{ dancer }}
+                                        </a>
+                                    </td>
+                                    <td>{{ dancer.identification_type }} {{ dancer.identification_number }}</td>
+                                    <td>
+                                        <a href="{% url 'award_certificate' choreography_pk=object.pk sender='dancer' sender_pk=dancer.pk %}"
+                                        class="btn btn-outline-success btn-sm rounded-circle" target="_blank" data-bs-toggle="tooltip" data-bs-title="{% translate 'Show certificate' %}">
+                                            <i class="bi bi-file-earmark-text-fill"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                <p class="mb-3">
+                    <i class="bi bi-exclamation-circle me-2"></i>
+                    {% translate "The choreography has no related dancers yet." %}
+                </p>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="row gx-2">
+        <div class="col-sm">
+            {% if object.is_disqualified %}
+                <p class="mb-3">
+                    <i class="bi bi-exclamation-circle me-2"></i>
+                    {% translate "The choreography was disqualified." %}
+                </p>
+            {% elif object.scores.exists %}
+                <div class="row gx-2">
+                    <div class="col">
+                        <div class="table-responsive">
+                            <table class="table table-striped align-middle text-center">
+                                <thead>
+                                    <tr class="dark">
+                                        <td scope="col">{% translate "Judge" %}</td>
+                                        <td scope="col">{% translate "Score" %}</td>
+                                        <td scope="col">{% translate "Feedback" %}</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for score in object.scores.all %}
+                                        {% if score.value is not None %}
+                                            <tr>
+                                                <td>{{ score.judge|title }}</td>
+                                                <td>{{ score.value }}</td>
+                                                <td>
+                                                    {% if score.feedback %}
+                                                        <span name="feedback" class="visually-hidden">{{ score.feedback.music_track.url }}</span>
+                                                    {% else %}
+                                                        {% translate "No feedback" %}
+                                                    {% endif %}
+                                                </td>
+                                            </tr>
+                                        {% endif %}
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-3 mb-3 text-center">
+                        <div class="dark" style="padding: 8px;">{% translate "Average score" %}</div>
+                        <div class="d-flex h-75 justify-content-center align-items-center fs-5">
+                            {% if object.average_score %}
+                                {{ object.average_score }}
+                            {% else %}
+                                -
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <p class="mb-3">
+                    <i class="bi bi-exclamation-circle me-2"></i>
+                    {% translate "The choreography has not been scored yet." %}
+                </p>
+            {% endif %}
+        </div>
+    </div>
+
+    {% if not object.is_disqualified %}
+        <div class="row gx-2">
+            <div class="col-sm">
+                {% if awards_qs.exists %}
+                    <div class="table-responsive">
+                        <table class="table table-striped align-middle text-center">
+                            <thead>
+                                <tr class="dark">
+                                    <td scope="col">{% translate "Award" %}</td>
+                                    <td scope="col">{% translate "Assigned by" %}</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for award in awards_qs %}
+                                    <tr>
+                                        <td>
+                                            <i class="bi bi-trophy-fill mx-2" style="color: {{ award.award_type.color }};"></i>{{ award.award_type }}
+                                        </td>
+                                        <td>{{ award.assigned_by|title }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% else %}
+                    <p class="mb-3">
+                        <i class="bi bi-exclamation-circle me-2"></i>
+                        {% translate "The choreography does not have related awards." %}
+                    </p>
+                {% endif %}
+            </div>
+        </div>
+    {% endif %}
+
+    <div class="row justify-content-center gx-2 pt-2">
+        <div class="col text-center">
+            <button type="button" onclick="javascript:history.back()" class="btn btn-outline-secondary">
+                <i class="bi bi-arrow-return-left me-2"></i>{% translate "Go back" %}
+            </button>
+        </div>
+    </div>
+
+    <script src="{% static 'choreography/js/award_detail.js' %}"></script>
+
+{% endblock card_body %}

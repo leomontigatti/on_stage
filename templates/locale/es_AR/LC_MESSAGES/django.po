@@ -1,0 +1,422 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-12-14 10:49-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: 404.html:19
+msgid "We could not find what you were looking for"
+msgstr "No pudimos encontrar lo que estabas buscando"
+
+#: 404.html:20 500.html:20
+msgid "Try again in a moment or contact us."
+msgstr "Probá de nuevo en otro momento o escribinos."
+
+#: 404.html:25 500.html:25 go_back_button.html:5
+#: registration/activation_failed.html:22
+#: registration/activation_mail_sent.html:20
+#: registration/password_reset_done.html:20 registration/terms.html:24
+msgid "Go back"
+msgstr "Volver"
+
+#: 500.html:19 registration/activation_failed.html:8
+msgid "Something went wrong"
+msgstr "Algo salió mal"
+
+#: card.html:22
+#, python-format
+msgid "Add %(model_name)s"
+msgstr "Agregar %(model_name)s"
+
+#: card.html:27
+msgid "Filter by schedule"
+msgstr "Filtrar por cronograma"
+
+#: card.html:51
+msgid "Documentation"
+msgstr "Documentación"
+
+#: card.html:55
+msgid "Agreement"
+msgstr "Acuerdo"
+
+#: card.html:56
+msgid "Minors authorization"
+msgstr "Autorización de menores"
+
+#: card.html:58
+msgid "Contract"
+msgstr "Contrato"
+
+#: card.html:72 card.html:82
+msgid "There were no matches for the search made."
+msgstr "No hubo coincidencias para la búsqueda realizada."
+
+#: card.html:74 card.html:76
+msgid "Clear search"
+msgstr "Limpiar búsqueda"
+
+#: card.html:83 filters.html:8
+msgid "Clear filters"
+msgstr "Limpiar filtros"
+
+#: create_modal.html:9
+msgid "Add"
+msgstr "Agregar"
+
+#: create_modal.html:11 update_button.html:8
+msgid "Update"
+msgstr "Modificar"
+
+#: create_modal.html:13
+#, python-format
+msgid "%(model_name)s"
+msgstr "%(model_name)s"
+
+#: create_modal.html:18
+msgid "Are you sure you want to"
+msgstr "Estás seguro que querés"
+
+#: create_modal.html:21 create_modal.html:31 create_modal.html:39
+msgid "add a new"
+msgstr "agregar un/a nuevo/a"
+
+#: create_modal.html:23 create_modal.html:41
+msgid "update"
+msgstr "modificar"
+
+#: create_modal.html:26 create_modal.html:32 create_modal.html:44
+msgid "with the provided information?"
+msgstr "con la información ingresada?"
+
+#: create_modal.html:27
+msgid "Once confirmed, the information"
+msgstr "Una vez confirmado, la información"
+
+#: create_modal.html:27
+msgid "CANNOT"
+msgstr "NO SE PUEDE"
+
+#: create_modal.html:27
+msgid "be modified!"
+msgstr "modificar!"
+
+#: create_modal.html:28
+msgid "Registration is finalized once the deposit payment has been made."
+msgstr "El registro finaliza una vez realizado el pago de la seña."
+
+#: create_modal.html:29
+msgid "For more information go to the payments section."
+msgstr "Para más información, andá a la sección de pagos."
+
+#: create_modal.html:33
+msgid "To keep your place in the seminar, payment of the"
+msgstr "Para mantener tu lugar en el seminario, el pago"
+
+#: create_modal.html:34
+msgid "deposit"
+msgstr "de la seña"
+
+#: create_modal.html:36
+msgid "is required within 48 hours of registration."
+msgstr "es necesario 48 horas a partir del registro."
+
+#: create_modal.html:50
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: create_modal.html:54
+msgid "Confirm"
+msgstr "Confirmar"
+
+#: delete_button.html:6
+msgid "Delete"
+msgstr "Eliminar"
+
+#: event_filter.html:6
+msgid "Filter by event"
+msgstr "Filtrar por evento"
+
+#: filters.html:6
+msgid "FILTER"
+msgstr "FILTRO"
+
+#: filters.html:13
+msgid "By"
+msgstr "Por"
+
+#: filters.html:17
+msgid "Show all"
+msgstr "Mostrar todos"
+
+#: footer.html:7
+msgid "designed by"
+msgstr "diseñado por"
+
+#: home.html:6
+msgid "Welcome to the On Stage academies homepage"
+msgstr "Bienvenido al sitio de academias de On Stage"
+
+#: navbar.html:28
+msgid "Professors"
+msgstr "Profesores"
+
+#: navbar.html:38
+msgid "Dancers"
+msgstr "Bailarines"
+
+#: navbar.html:48
+msgid "Choreographies"
+msgstr "Coreografías"
+
+#: navbar.html:58
+msgid "Seminars"
+msgstr "Seminarios"
+
+#: navbar.html:63
+msgid "Payments"
+msgstr "Pagos"
+
+#: navbar.html:73
+msgid "Awards"
+msgstr "Premios"
+
+#: navbar.html:81
+msgid "Logout"
+msgstr "Salir"
+
+#: registration/activation_failed.html:15
+msgid "We could not verify your email."
+msgstr "No pudimos verificar tu email."
+
+#: registration/activation_failed.html:17
+msgid "Try again in a moment or"
+msgstr "Probá de nuevo en otro momento o"
+
+#: registration/activation_failed.html:17
+msgid "contact us"
+msgstr "escribinos"
+
+#: registration/activation_mail_body.html:4
+#: registration/password_reset_email.html:4
+msgid "Hi"
+msgstr "Hola"
+
+#: registration/activation_mail_body.html:5
+msgid ""
+"To complete your registration, click the following link or paste it in your "
+"browser"
+msgstr ""
+"Para completar el registro, hacé click en el siguiente link o pegalo en tu "
+"navegador"
+
+#: registration/activation_mail_body.html:9
+#: registration/password_reset_email.html:12
+msgid "Thank you"
+msgstr "Gracias"
+
+#: registration/activation_mail_body.html:10
+#: registration/password_reset_email.html:13
+msgid "The On Stage team"
+msgstr "El equipo de On Stage"
+
+#: registration/activation_mail_sent.html:4
+#: registration/activation_thanks.html:4
+msgid "Email confirmation"
+msgstr "Confirmación de email"
+
+#: registration/activation_mail_sent.html:8
+#: registration/activation_thanks.html:8
+msgid "Thank you for joining"
+msgstr "Gracias por unirte"
+
+#: registration/activation_mail_sent.html:15
+msgid "An email was sent to"
+msgstr "Se envió un email a"
+
+#: registration/activation_mail_sent.html:15
+msgid "with the link to activate your account"
+msgstr "con el link para activar tu cuenta"
+
+#: registration/activation_mail_sent.html:16
+#: registration/password_reset_done.html:16
+msgid "If you can't find it in your inbox, please check your spam folder"
+msgstr ""
+"Si no podés encontrarlo en tu bandeja de entrada, por favor revisá la "
+"carpeta de spam"
+
+#: registration/activation_thanks.html:14
+msgid "Your email verification was successful."
+msgstr "Tu email fue verificado correctamente."
+
+#: registration/activation_thanks.html:16
+#: registration/password_reset_complete.html:16
+msgid "You can now log in"
+msgstr "Ya podés ingresar"
+
+#: registration/activation_thanks.html:16
+#: registration/password_reset_complete.html:16
+msgid "here"
+msgstr "acá"
+
+#: registration/login.html:4 registration/login.html:25
+msgid "Log in"
+msgstr "Ingresar"
+
+#: registration/login.html:28
+msgid "Don't have an account?"
+msgstr "No tenés una cuenta?"
+
+#: registration/login.html:28
+msgid "Sign up"
+msgstr "Registrate"
+
+#: registration/login.html:29
+msgid "Forgot your password?"
+msgstr "Te olvidaste la contraseña?"
+
+#: registration/password_reset_complete.html:4
+#: registration/password_reset_confirm.html:13
+#: registration/password_reset_confirm.html:42
+#: registration/password_reset_done.html:4
+#: registration/password_reset_form.html:4
+msgid "Reset"
+msgstr "Restablecer"
+
+#: registration/password_reset_complete.html:8
+msgid "All set"
+msgstr "Todo listo"
+
+#: registration/password_reset_complete.html:14
+msgid "Your password was successfully reset."
+msgstr "Tu contraseña se restableció correctamente."
+
+#: registration/password_reset_confirm.html:31
+#: registration/password_reset_done.html:8
+#: registration/password_reset_form.html:12
+msgid "Reset password"
+msgstr "Restablecer contraseña"
+
+#: registration/password_reset_confirm.html:44
+#: registration/password_reset_form.html:24 registration/signup.html:142
+msgid "Already have an account?"
+msgstr "Ya tenés una cuenta?"
+
+#: registration/password_reset_confirm.html:44
+#: registration/password_reset_form.html:24 registration/signup.html:142
+msgid "Sign in"
+msgstr "Ingresá"
+
+#: registration/password_reset_done.html:15
+msgid "An email was sent with the link to reset your password"
+msgstr "Se envió un email con el link para restablecer tu contraseña"
+
+#: registration/password_reset_email.html:5
+msgid ""
+"To reset your password, click the following link or paste it in your browser"
+msgstr ""
+"Para restablecer tu contraseña, hacé click en el siguente link o pegalo en "
+"tu navegador"
+
+#: registration/password_reset_email.html:9
+msgid ""
+"You can use this link only once. If you need to reset a new password, please "
+"visit"
+msgstr ""
+"Podés usar este link solo una vez. Si necesitás volver a restablecer tu "
+"contraseña, por favor andá a"
+
+#: registration/password_reset_email.html:9
+msgid "and ask for a new one"
+msgstr "y pedí uno nuevo"
+
+#: registration/password_reset_email.html:10
+msgid "If you didn't request this email, please ignore it"
+msgstr "Si no solicitaste este email, por favor ignoralo"
+
+#: registration/password_reset_form.html:14
+msgid ""
+"Forgot your password? Write down the email you registered with and we will "
+"send you the instructions to create a new one."
+msgstr ""
+"Te olvidaste tu contraseña? Escribí el email con el que te registraste y "
+"vamos a enviarte las instrucciones para crear una nueva."
+
+#: registration/password_reset_form.html:21
+msgid "Send"
+msgstr "Enviar"
+
+#: registration/signup.html:46
+msgid ""
+"Cannot be similar to the academy name. Must contain at least 8 characters. "
+"Cannot be a commonly used password. Cannot be completely numeric."
+msgstr ""
+"No puede ser similar al nombre de la academia. Debe contener al menos 8 "
+"caracteres. No puede ser una contraseña usada comunmente. No puede ser "
+"completamente numérica."
+
+#: registration/signup.html:65
+msgid "Contact information"
+msgstr "Información de contacto"
+
+#: registration/signup.html:136
+msgid "I accept all"
+msgstr "Acepto todos los"
+
+#: registration/signup.html:136
+msgid "terms and conditions"
+msgstr "términos y condiciones"
+
+#: registration/signup.html:140
+msgid "Create account"
+msgstr "Crear cuenta"
+
+#: registration/terms.html:4 registration/terms.html:13
+msgid "Terms and conditions"
+msgstr "Términos y condiciones"
+
+#: registration/terms.html:16
+msgid "'OS, On Stage' is a registered trade mark."
+msgstr "'OS, On Stage' es una marca registrada."
+
+#: registration/terms.html:17
+msgid "The entered information on this site must be real and true."
+msgstr "La información ingresada en el sitio debe ser real y verdadera."
+
+#: registration/terms.html:18
+msgid ""
+"If there is any minors information it must be entered prior it's parents or "
+"guardian authorization."
+msgstr ""
+"En caso de ser información perteneciente a menores de edad, debe ingresarse "
+"previa autorización de sus padres o tutores."
+
+#: registration/terms.html:19
+msgid ""
+"The application may use the necessary entered information for its proper "
+"operation."
+msgstr ""
+"La aplicación puede usar la información necesaria para su correcto "
+"funcionamiento."
+
+#: save_button.html:6
+msgid "Save"
+msgstr "Guardar"
+
+#: update_button.html:6
+msgid "Complete"
+msgstr "Completar"

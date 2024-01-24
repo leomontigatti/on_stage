@@ -1,0 +1,42 @@
+{% load static i18n %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="{% static 'staticfiles/images/os_icon.ico' %}"/>
+        <link rel="stylesheet" href="{% static 'staticfiles/css/global.css' %}">
+
+        {% include 'bootstrap.html' %}
+
+        {% include 'navbar.html' %}
+
+        <title>On Stage | {{ title }}</title>
+
+    </head>
+
+    <body class="d-flex flex-column min-vh-100">
+
+        {% include "messages.html" %}
+
+        <div class="container-xxl">
+
+            {% block content %}
+            {% endblock content %}
+
+        </div>
+
+        {% if event %}
+            {% include "whatsapp.html" %}
+        {% endif %}
+
+        {% include "footer.html" %}
+
+        <script src="{% static 'staticfiles/js/tooltips.js' %}"></script>
+
+    </body>
+
+</html>

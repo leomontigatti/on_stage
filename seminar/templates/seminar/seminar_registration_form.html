@@ -1,0 +1,128 @@
+{% extends "card.html" %}
+{% load static widget_tweaks i18n %}
+
+{% block card_body %}
+
+    <div class="row gx-2">
+        <div class="col-sm">
+            <div class="input-group pb-2">
+                <span class="input-group-text">{% translate "Teacher" %}</span>
+                <span class="form-control">{{ seminar.teacher }}</span>
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="input-group pb-2">
+                <span class="input-group-text">{% translate "Date" %}</span>
+                {% if seminar.date %}
+                    <span class="form-control">{{ seminar.date|date:"SHORT_DATE_FORMAT" }}</span>
+                {% else %}
+                    <span class="form-control">{% translate "not set yet" %}</span>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="input-group pb-2">
+                <span class="input-group-text">{% translate "Time" %}</span>
+                {% if seminar.time %}
+                    <span class="form-control">{{ seminar.time }}</span>
+                {% else %}
+                    <span class="form-control">{% translate "not set yet" %}</span>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    {% with WIDGET_ERROR_CLASS="is-invalid" %}
+        <form method="post" autocomplete="off" novalidate id="seminarregistration_form">
+            {% csrf_token %}
+
+            <div class="table-responsive mt-2">
+                <table class="table table-striped align-middle text-center">
+                    <thead>
+                        <tr class="dark">
+                            <td scope="col" class="text-center" style="width: 10%;"></td>
+                            <td scope="col">{% translate "Dancer" %}</td>
+                            <td scope="col" style="width: 15%;">{% translate "Total" %}</td>
+                            <td scope="col" style="width: 15%;">{% translate "Deposit" %}</td>
+                            <td scope="col" style="width: 15%;">{% translate "Balance" %}</td>
+                        </tr>
+                    </thead>
+                    <tbody id="registrations-table">
+                        {% for form in formset %}
+                            <tr>
+                                <td class="align-middle text-center">
+                                    {% if not form.instance.id or seminar.registration_ended %}
+                                        <a class="btn btn-outline-secondary btn-sm rounded-circle disabled">
+                                            <i class="bi bi-x-lg"></i>
+                                        </a>
+                                    {% else %}
+                                        <a href="{% url 'seminarregistration_delete' form.instance.pk %}"
+                                        class="btn btn-outline-danger btn-sm rounded-circle" data-bs-toggle="tooltip" data-bs-title="{% translate "Delete" %}">
+                                            <i class="bi bi-x-lg"></i>
+                                        </a>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    {% render_field form.dancer %}
+                                    <div class="invalid-feedback">
+                                        {{ form.dancer.errors|first }}
+                                    </div>
+                                </td>
+                                <td>
+                                    {{ form.total_price }}
+                                </td>
+                                {% if form.deposit_paid.value %}
+                                    <td class="text-success" data-bs-toggle="tooltip" data-bs-title="{% translate "Paid" %}">
+                                        <i class="bi bi-check-circle-fill"></i>
+                                    </td>
+                                {% else %}
+                                    <td>
+                                        {{ form.deposit_amount }}
+                                    </td>
+                                {% endif %}
+                                {% if form.deposit_paid.value and form.fully_paid.value %}
+                                    <td class="text-success" data-bs-toggle="tooltip" data-bs-title="{% translate "Paid" %}">
+                                        -
+                                    </td>
+                                {% else %}
+                                    <td>
+                                        {{ form.balance }}
+                                    </td>
+                                {% endif %}
+                                {{ form.id }}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="row gx-2 text-center justify-content-center m-2">
+                <div class="col-sm">
+                    <a class="btn btn-outline-primary{% if seminar.registration_ended %} disabled{% endif %}" onclick="addRegistration()">
+                        <i class="bi bi-plus-lg me-2"></i>{% translate "Add dancer" %}
+                    </a>
+                </div>
+            </div>
+
+            {{ formset.management_form }}
+
+            <div id="empty-registration-formset" class="visually-hidden">
+                {{ formset.empty_form }}
+            </div>
+
+            <div class="row justify-content-center gx-2 pt-2">
+                <div class="col {% if seminar.registration_ended %}text-center{% else %}text-end{% endif %}">
+                    <a href="{% url 'seminarregistration_list' event.pk %}" class="btn btn-outline-secondary">
+                        <i class="bi bi-arrow-return-left me-2"></i>{% translate "Go back" %}
+                    </a>
+                </div>
+                {% if not seminar.registration_ended %}
+                    {% include "save_button.html" %}
+                {% endif %}
+            </div>
+        </form>
+    {% endwith %}
+
+    <script src="{% static 'seminar/js/seminar_registration_form.js' %}"></script>
+
+{% endblock card_body %}

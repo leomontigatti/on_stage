@@ -1,0 +1,173 @@
+{% extends 'admin/base_site.html' %}
+{% load i18n admin_urls static admin_list %}
+
+{% block extrastyle %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/css/changelists.css' %}">
+
+{% endblock extrastyle %}
+
+{% block usertools %}
+
+    {{ block.super }}
+
+{% endblock usertools %}
+
+{% block breadcrumbs %}
+
+    <div class="breadcrumbs">
+        <a href="{% url 'admin:index' %}">{% translate 'Home' %}</a>
+        &rsaquo; <a href="{% url 'admin:app_list' 'choreography' %}">{% translate 'Choreography' %}</a>
+        &rsaquo; <a href="{% url 'admin:choreography_choreography_changelist' %}">{% translate "Choreographies" %}</a>
+        {% if title %}
+            &rsaquo; {{ title }}
+        {% endif %}
+    </div>
+
+{% endblock breadcrumbs %}
+
+{% block content %}
+
+    <h3>
+        {% blocktranslate count choreographies_amount=choreographies_list.count %}{{ choreographies_amount }} choreography selected.{% plural %}{{ choreographies_amount }} choreographies selected.{% endblocktranslate %}
+    </h3>
+
+    <br>
+
+    <div id="content-main">
+        <div class="module filtered" id="changelist">
+            <div class="changelist-form-container">
+                <div class="results">
+                    <table id="result_list">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="action-checkbox-column">
+                                    <div class="text">
+                                        <span><input type="checkbox" id="check-all" onClick="checkAll(this)"></span>
+                                    </div>
+                                    <div class="clear"></div>
+                                </th>
+                                <th scope="col" style="padding-left: 7px;">
+                                    <div class="text">ID</div>
+                                </th>
+                                <th scope="col" style="padding-left: 7px;">
+                                    <div class="text">{% translate "Name" %}</div>
+                                </th>
+                                <th scope="col" style="padding-left: 7px;">
+                                    <div class="text">{% translate "Academy" %}</div>
+                                </th>
+                                <th scope="col" style="padding-left: 7px;">
+                                    <div class="text">{% translate "Category" %}</div>
+                                </th>
+                                <th scope="col" style="padding-left: 7px;">
+                                    <div class="text">{% translate "Deposit amount" %}</div>
+                                </th>
+                                <th scope="col" style="padding-left: 7px;">
+                                    <div class="text">{% translate "Deposit paid" %}</div>
+                                </th>
+                                <th scope="col" style="padding-left: 7px;">
+                                    <div class="text">{% translate "Total amount" %}</div>
+                                </th>
+                                <th scope="col" style="padding-left: 7px;">
+                                    <div class="text">{% translate "Is paid" %}</div>
+                                </th>
+                                <th scope="col" style="padding-left: 7px;">
+                                    <div class="text">{% translate "Balance" %}</div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for choreography in choreographies_list %}
+                                <tr id="{{ choreography.id }}_tr" name="tr">
+                                    <td class="action-checkbox">
+                                        <input type="checkbox" name="_selected_action" value="{{ choreography.id }}" class="action-select" onchange="setSelected(this)">
+                                    </td>
+                                    <th class="field-id">
+                                        <a href="/admin/main/choreography/{{ choreography.id }}/change/?_changelist_filters=o%3D">
+                                            {{ choreography.id }}
+                                        </a>
+                                    </th>
+                                    <td class="field-name">
+                                        <a href="/admin/main/choreography/{{ choreography.id }}/change/?_changelist_filters=o%3D">
+                                            {{ choreography.name }}
+                                        </a>
+                                    </td>
+                                    <td class="field-academy nowrap">
+                                        {{ choreography.academy }}
+                                    </td>
+                                    <td class="field-category nowrap">
+                                        {{ choreography.category }}
+                                    </td>
+                                    <td class="nowrap" name="deposit_amount">
+                                        {{ choreography.deposit_amount }}
+                                    </td>
+                                    <td class="field-deposit_paid nowrap">
+                                        {% if choreography.deposit_paid %}
+                                            <img src="/static/admin/img/icon-yes.svg" alt="True" name="deposit_paid">
+                                        {% else %}
+                                            <img src="/static/admin/img/icon-no.svg" alt="False" name="deposit_paid">
+                                        {% endif %}
+                                    </td>
+                                    <td class="nowrap" name="total_price">
+                                        {{ choreography.total_price }}
+                                    </td>
+                                    <td class="field-fully_paid nowrap">
+                                        {% if choreography.fully_paid %}
+                                            <img src="/static/admin/img/icon-yes.svg" alt="True" name="fully_paid">
+                                        {% else %}
+                                            <img src="/static/admin/img/icon-no.svg" alt="False" name="fully_paid">
+                                        {% endif %}
+                                    </td>
+                                    <td class="nowrap" name="balance_price">
+                                        {{ choreography.balance }}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="changelist-filter">
+                <h2 style="padding-top: 10px; padding-bottom: 10px;">{% translate "Actions" %}</h2>
+                <ul class="actionlist">
+                    <li>{% translate "Deposit total amount" %}:
+                        <span style="float: right;" id="deposit_amount">
+                            $ <b>0</b>
+                        </span>
+                    </li>
+                    <li>{% translate "Balance total amount" %}:
+                        <span style="float: right;" id="balance_amount">
+                            $ <b>0</b>
+                        </span>
+                    </li>
+                </ul>
+                <form action="{% url 'manage_payments_view' %}" method="post" name="choreographies_list_form" id="choreographies_list_form">
+                    {% csrf_token %}
+                    <input type="hidden" name="selected_choreographies_id" id="selected_choreographies_id">
+                    <h5 style="text-align: center;">
+                        {% translate "Date" %}
+                        <input type="date" name="payment_date" id="payment_date" value="{% now "Y-m-d" %}" required style="margin-left: 10px;">
+                    </h5>
+                    <h3 style="text-align: center;">
+                        <select name="payment_method" id="payment_method" required>
+                            <option value selected disabled>{% translate "Select payment method" %}</option>
+                            <option value="1">{% translate "Cash" %}</option>
+                            <option value="2">{% translate "Wire" %}</option>
+                            <option value="3">{% translate "Deposit" %}</option>
+                            <option value="4">{% translate "Credit card" %}</option>
+                            <option value="5">{% translate "Other" %}</option>
+                        </select>
+                    </h3>
+                    <span style="align-self: center;">
+                        <input type="submit" form="choreographies_list_form" value="{% translate "Pay deposit" %}" name="pay_deposit_amount" style="margin-bottom: 10px; margin-left: 10px;">
+                        <input type="submit" form="choreographies_list_form" value="{% translate "Pay balance" %}" name="pay_balance_amount" style="margin-bottom: 10px; margin-right: 10px; float:right;">
+                    </span>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'choreography/js/manage_payments.js' %}"></script>
+
+{% endblock content %}

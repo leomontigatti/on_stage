@@ -1,0 +1,61 @@
+{% extends "card.html" %}
+{% load i18n custom_tags %}
+
+{% block card_body %}
+
+    {% if page_obj %}
+        <div class="table-responsive">
+            <table class="table table-striped align-middle text-center">
+                <thead>
+                    <tr class="dark">
+                        <td scope="col">{% translate "Name" %}</td>
+                        <td scope="col">{% translate "Dance mode" %}</td>
+                        <td scope="col">{% translate "Category" %}</td>
+                        <td scope="col">{% translate "Awards" %}</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for object in page_obj %}
+                        <tr>
+                            <td>
+                                {% if object.show_awards %}
+                                    <a href="{{ object.get_award_url }}" class="text-decoration-none">
+                                        {{ object.name }}
+                                    </a>
+                                {% else %}
+                                    {{ object.name }}
+                                {% endif %}
+                            </td>
+                            <td>{{ object.dance_mode }}</td>
+                            <td>{{ object.category }}</td>
+                            <td>
+                                {% if object.show_awards %}
+                                    {% if object.is_disqualified %}
+                                        -
+                                    {% else %}
+                                        {% for award in object.awards.all %}
+                                            <i class="bi bi-trophy-fill mx-1" style="color: {{ award.award_type.color }};" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="{{ award.award_type }}"></i>
+                                        {% endfor %}
+                                    {% endif %}
+                                {% else %}
+                                    -
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% elif event.ended %}
+        <i class="bi bi-exclamation-circle me-2"></i>
+        {% translate "There are no registered choreographies for the selected event." %} <a href="{% url 'event_list' model|get_class %}" class="text-decoration-none">{% translate "Go back" %}</a>.
+    {% else %}
+        <p class="m-2">
+            <i class="bi bi-exclamation-circle me-2"></i>
+            {% translate "No choreographies have yet been registered. You can start by clicking " %}<a href="{% url 'choreography_create' event.pk %}" class="text-decoration-none">{% translate "here" %}</a>.
+        </p>
+    {% endif %}
+
+    {% include "pagination.html" %}
+
+{% endblock card_body %}

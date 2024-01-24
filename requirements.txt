@@ -1,0 +1,16 @@
+django
+python-decouple
+wheel
+pillow
+django-cleanup
+celery
+celery[redis]
+django-celery-results
+django-widget-tweaks
+django-colorfield
+weasyprint
+openpyxl
+gunicorn
+psycopg2-binary
+docutils
+pydub

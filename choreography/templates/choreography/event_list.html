@@ -1,0 +1,35 @@
+{% extends "card.html" %}
+{% load static i18n custom_tags %}
+
+{% block card_body %}
+
+    <div class="alert alert-info text-center mb-2" role="alert">
+        {% translate "Select an event to start." %}
+    </div>
+
+    <div class="row justify-content-between text-center">
+        {% for event in event_list %}
+            <div class="col-sm gy-2">
+                <div class="card teacher" style="background-color: #f8f9fa;">
+                    {% if event.ended %}
+                        <div class="alert alert-warning position-absolute top-50 start-50 translate-middle w-100 text-center">
+                            {% translate "Ended" %}
+                        </div>
+                    {% endif %}
+                    <a href="{% url model|get_class|add:'_list' event.pk %}" class="text-reset text-decoration-none">
+                        {% if event.logo %}
+                            <img src="{{ event.logo.url }}" class="card-img-top rounded-circle crop mt-2">
+                        {% else %}
+                            <img src="{% static 'event/images/event_no_logo.svg' %}" class="card-img-top rounded crop mt-2">
+                        {% endif %}
+                        <div class="card-body">
+                            <p class="card-title"><strong>{{ event.name }}</strong></p>
+                            <p class="card-text"><small class="text-body-secondary">{% translate "From" %} <strong>{{ event.start_date|date:"SHORT_DATE_FORMAT" }} </strong>{% translate "to" %} <strong>{{ event.end_date|date:"SHORT_DATE_FORMAT" }}</strong></small></p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock card_body %}

@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% load static custom_tags i18n %}
+
+{% block content %}
+
+    {% block card_title %}
+
+        <div class="d-flex py-3 justify-content-between">
+            <h3 class="m-2 text-secondary">{{ title }}</h3>
+            {% if object %}
+                <h3 class="m-2 text-secondary">N&deg; {{ object.pk }}</h3>
+            {% endif %}
+            {% if "list" in request.path %}
+                <div class="align-self-center">
+                    {% if model|get_class in "professor, dancer, choreography" %}
+                        {% if model|get_class in "professor, dancer" %}
+                            {% url model|get_class|add:"_create" as the_url %}
+                        {% elif model|get_class == "choreography" %}
+                            {% url "choreography_create" event.pk as the_url %}
+                        {% endif %}
+                        <a href="{{ the_url }}" class="btn btn-outline-primary m-1{% if event.registration_ended %} disabled{% endif %}">
+                            <i class="bi bi-plus-lg me-2"></i>{% blocktranslate with model|verbose_name as model_name %}Add {{ model_name }}{% endblocktranslate %}
+                        </a>
+                    {% elif model|get_class == "music" %}
+                        <form method="get">
+                            <select class="form-select" onChange="this.form.submit()" name="schedule_filter">
+                                <option value selected disabled>{% translate "Filter by schedule" %}</option>
+                                {% for schedule in schedule_list %}
+                                    <option value="{{ schedule.pk }}" {% if selected_schedule == schedule %}selected{% endif %}>{{ schedule.date|date:"SHORT_DATE_FORMAT" }}</option>
+                                {% endfor %}
+                            </select>
+                        </form>
+                    {% endif %}
+                </div>
+            {% endif %}
+        </div>
+
+    {% endblock card_title %}
+
+    <div class="row">
+        <div class="col-sm">
+            {% if search_text %}
+                <div class="row">
+                    <div class="col">
+                        {% include "search_form.html" %}
+                    </div>
+                    {% if model|get_class in "dancer, professor" %}
+                        <div class="col-2 text-end">
+                            <div class="btn-group">
+                                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                    {% translate "Documentation" %}
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    {% if model|get_class == "dancer" %}
+                                        <li><a class="dropdown-item" href="{% static 'files/contrato_mayores.pdf' %}" target="_blank">{% translate "Agreement" %}</a></li>
+                                        <li><a class="dropdown-item" href="{% static 'files/autorizacion_menores.pdf' %}" target="_blank">{% translate "Minors authorization" %}</a></li>
+                                    {% elif model|get_class == "professor" %}
+                                        <li><a class="dropdown-item" href="{% static 'files/contrato_profesores.pdf' %}" target="_blank">{% translate "Contract" %}</a></li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            {% else %}
+                <div class="flex-grow-1 border-bottom mb-3"></div>
+            {% endif %}
+
+            {% if search_input and not page_obj %}
+                <p class="m-2">
+                    <i class="bi bi-exclamation-circle me-1"></i>
+                    {% translate "There were no matches for the search made." %}
+                    {% if model|get_class in 'choreography, award, payment' %}
+                        <a href="{% url model|get_class|add:'_list' event.pk %}" class="text-decoration-none">{% translate "Clear search" %}</a>.
+                    {% else %}
+                        <a href="{% url model|get_class|add:'_list' %}" class="text-decoration-none">{% translate "Clear search" %}</a>.
+                    {% endif %}
+                </p>
+            {% elif filter_options and not page_obj %}
+                <p class="m-2">
+                    <i class="bi bi-exclamation-circle me-1"></i>
+                    {% translate "There were no matches for the search made." %}
+                    <span class="text-primary" name="clear-filters" onclick="clearFilters()">{% translate "Clear filters" %}</span>.
+                </p>
+            {% else %}
+                {% block card_body %}
+                {% endblock card_body %}
+            {% endif %}
+        </div>
+
+        {% if filter_options %}
+            {% include "filters.html" %}
+        {% endif %}
+    </div>
+
+{% endblock content %}

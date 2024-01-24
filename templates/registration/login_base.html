@@ -1,0 +1,34 @@
+{% load static i18n %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="{% static 'staticfiles/images/os_icon.ico' %}"/>
+        <link rel="stylesheet" href="{% static 'staticfiles/css/login.css' %}">
+
+        {% include "bootstrap.html" %}
+
+        <title>On Stage | {% block title %}{% endblock title %}</title>
+
+    </head>
+
+    <body class="d-flex flex-column vh-100 py-0">
+
+        {% include "messages.html" %}
+
+        <div class="container-fluid my-auto text-center">
+
+            {% block content %}
+            {% endblock content %}
+
+        </div>
+
+        {% include "footer.html" %}
+
+    </body>
+
+</html>

@@ -1,0 +1,59 @@
+{% load custom_tags i18n %}
+
+<div class="modal fade" id="createModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="fw-bold modal-title fs-5" id="createModalLabel">
+                    {% if not object %}
+                        {% translate "Add" %}
+                    {% else %}
+                        {% translate "Update" %}
+                    {% endif %}
+                    {% blocktranslate with model|verbose_name as model_name %}{{ model_name }}{% endblocktranslate %}
+                </h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body text-center">
+                {% translate "Are you sure you want to" %}
+                {% if model|get_class == "choreography" %}
+                    {% if not object %}
+                        {% translate "add a new" %} <strong>{{ object|verbose_name }}</strong> <br>
+                    {% else %}
+                        {% translate "update" %} <br>
+                        <strong>{{ object.name }}</strong> <br>
+                    {% endif %}
+                    {% translate "with the provided information?" %} <br>
+                    {% translate "Once confirmed, the information" %} <b>{% translate "CANNOT" %}</b> {% translate "be modified!" %} <br>
+                    {% translate "Registration is finalized once the deposit payment has been made." %}
+                    {% translate "For more information go to the payments section." %}
+                {% elif model|get_class == "seminar" %}
+                    {% translate "add a new" %} <strong>{{ object|verbose_name }}</strong> <br>
+                    {% translate "with the provided information?" %} <br>
+                    {% translate "To keep your place in the seminar, payment of the" %} <br>
+                    {% translate "deposit" %}
+                    {{ seminar.deposit_percentage }}
+                    {% translate "is required within 48 hours of registration." %}
+                {% else %}
+                    {% if not object %}
+                        {% translate "add a new" %} <strong>{{ model|verbose_name }}</strong> <br>
+                    {% else %}
+                        {% translate "update" %} <br>
+                        <strong>{{ object }}</strong> <br>
+                    {% endif %}
+                    {% translate "with the provided information?" %}
+                {% endif %}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary me-1"
+                data-bs-dismiss="modal">
+                    {% translate "Cancel" %}
+                </button>
+                <button type="submit" class="btn btn-outline-success"
+                form="{{ model|get_class }}_form">
+                    <i class="bi bi-check2 me-2"></i>{% translate "Confirm" %}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

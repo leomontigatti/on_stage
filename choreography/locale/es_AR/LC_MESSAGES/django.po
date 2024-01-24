@@ -1,0 +1,1167 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-16 17:20-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: admin.py:34 admin.py:192 admin.py:674 admin.py:688 admin.py:824
+#: templates/choreography/choreography_export_pdf.html:32
+#: templates/choreography/choreography_set_order_number.html:46
+#: templates/choreography/music_list.html:16
+#: templates/choreography/score_list.html:11
+msgid "Order number"
+msgstr "Número de orden"
+
+#: admin.py:39
+msgid "Ordered"
+msgstr "Ordenado"
+
+#: admin.py:40
+msgid "Not ordered"
+msgstr "No ordenado"
+
+#: admin.py:53 admin.py:502
+msgid "Fully paid"
+msgstr "Pagado"
+
+#: admin.py:58
+msgid "Yes"
+msgstr "Si"
+
+#: admin.py:59
+msgid "No"
+msgstr "No"
+
+#: admin.py:83
+#, python-format
+msgid "%(count)d choreography was assigned to %(judge)s"
+msgid_plural "%(count)d choreographies were assigned to %(judge)s"
+msgstr[0] "Se le asignó %(count)d coreografía a %(judge)s"
+msgstr[1] "Se le asignaron %(count)d coreografías a %(judge)s"
+
+#: admin.py:94
+msgid "Assign to judge"
+msgstr "Asignar a juez"
+
+#: admin.py:112
+msgid "Search by PK, event, name or academy."
+msgstr "Buscar por ID, evento, nombre o academia."
+
+#: admin.py:125
+msgid "Show awards"
+msgstr "Mostrar premios"
+
+#: admin.py:130
+msgid "Awards for the selected choreographies are now shown."
+msgstr "Ahora se muestran los premios de las coreografías seleccionadas."
+
+#: admin.py:134
+msgid "Hide awards"
+msgstr "Esconder premios"
+
+#: admin.py:139
+msgid "Awards for the selected choreographies are now hidden."
+msgstr "Ahora se esconden los premios de las coreografías seleccionadas."
+
+#: admin.py:143 admin.py:151
+msgid "Manage payments"
+msgstr "Administrar pagos"
+
+#: admin.py:157 admin.py:165
+msgid "Set order number"
+msgstr "Asignar número de orden"
+
+#: admin.py:171
+msgid "Export to PDF"
+msgstr "Exportar a PDF"
+
+#: admin.py:184
+msgid "Export to Excel | Event"
+msgstr "Exportar a Excel | Evento"
+
+#: admin.py:189 admin.py:279
+msgid "Choreographies list"
+msgstr "Lista de coreografías"
+
+#: admin.py:193 admin.py:283 admin.py:689
+#: templates/choreography/award_detail.html:9
+#: templates/choreography/award_list.html:13
+#: templates/choreography/choreography_detail.html:9
+#: templates/choreography/choreography_export_pdf.html:33
+#: templates/choreography/choreography_list.html:13
+#: templates/choreography/choreography_payment.html:60
+#: templates/choreography/choreography_registered_email.html:10
+#: templates/choreography/choreography_set_order_number.html:60
+#: templates/choreography/music_list.html:19
+#: templates/choreography/payment_detail.html:9
+#: templates/choreography/score_list.html:14
+msgid "Category"
+msgstr "Categoría"
+
+#: admin.py:194 admin.py:284 admin.py:690
+#: templates/choreography/award_detail.html:15
+#: templates/choreography/award_list.html:12
+#: templates/choreography/choreography_detail.html:15
+#: templates/choreography/choreography_export_pdf.html:34
+#: templates/choreography/choreography_list.html:12
+#: templates/choreography/choreography_registered_email.html:11
+#: templates/choreography/choreography_set_order_number.html:63
+#: templates/choreography/music_list.html:20
+#: templates/choreography/payment_detail.html:15
+#: templates/choreography/score_list.html:15
+msgid "Dance mode"
+msgstr "Modalidad"
+
+#: admin.py:195 admin.py:285 admin.py:531 admin.py:546 admin.py:666
+#: admin.py:691 admin.py:836 admin.py:918 admin.py:962
+#: templates/choreography/choreography_export_pdf.html:35
+#: templates/choreography/choreography_payment.html:57
+#: templates/choreography/choreography_registered_email.html:6
+#: templates/choreography/choreography_set_order_number.html:57
+#: templates/choreography/music_list.html:18
+#: templates/choreography/score_list.html:13
+msgid "Academy"
+msgstr "Academia"
+
+#: admin.py:196 admin.py:692
+#: templates/choreography/choreography_export_pdf.html:36
+msgid "State"
+msgstr "Provincia"
+
+#: admin.py:197 admin.py:286 admin.py:527 admin.py:545 admin.py:662
+#: admin.py:693 admin.py:832 admin.py:914 admin.py:958
+msgid "Choreography name"
+msgstr "Nombre de la coreografía"
+
+#: admin.py:198 admin.py:694 templates/choreography/award_detail.html:37
+#: templates/choreography/choreography_detail.html:62
+#: templates/choreography/choreography_export_pdf.html:38
+#: templates/choreography/choreography_form.html:75
+#: templates/choreography/payment_detail.html:37
+msgid "Professors"
+msgstr "Profesores"
+
+#: admin.py:199 admin.py:695 templates/choreography/award_detail.html:76
+#: templates/choreography/choreography_detail.html:95
+#: templates/choreography/choreography_export_pdf.html:39
+#: templates/choreography/choreography_form.html:125
+#: templates/choreography/payment_detail.html:69
+msgid "Dancers"
+msgstr "Bailarines"
+
+#: admin.py:200 admin.py:287 admin.py:696
+msgid "Dancers amount"
+msgstr "Cantidad de bailarines"
+
+#: admin.py:206
+#, python-format
+msgid "%(count)d selected choreography"
+msgid_plural "%(count)d selected choreographies"
+msgstr[0] "%(count)d coreografía seleccionada"
+msgstr[1] "%(count)d coreografías seleccionadas"
+
+#: admin.py:274
+msgid "Export to Excel | Accounting"
+msgstr "Exportar a Excel | Contable"
+
+#: admin.py:282 admin.py:544 admin.py:658 admin.py:910 admin.py:954
+msgid "Choreography ID"
+msgstr "ID de coreografía"
+
+#: admin.py:288
+msgid "Price per dancer"
+msgstr "Precio por bailarín"
+
+#: admin.py:289
+msgid "Discounts"
+msgstr "Descuentos"
+
+#: admin.py:290 templates/choreography/payment_list.html:40
+msgid "Total"
+msgstr "Total"
+
+#: admin.py:291
+msgid "Paid amount"
+msgstr "Monto pagado"
+
+#: admin.py:292 admin.py:498
+#: templates/choreography/choreography_payment.html:75
+#: templates/choreography/payment_detail.html:155
+#: templates/choreography/payment_list.html:41
+msgid "Balance"
+msgstr "Saldo"
+
+#: admin.py:307
+#, python-format
+msgid ""
+"%(count)d selected choreography - Total $ %(price)s - Paid amount $ %(paid)s"
+msgid_plural ""
+"%(count)d selected choreographies - Total $ %(price)s - Paid amount $ "
+"%(paid)s"
+msgstr[0] ""
+"%(count)d coreografía seleccionada - Total $ %(price)s - Monto pagado $ "
+"%(paid)s"
+msgstr[1] ""
+"%(count)d coreografías seleccionadas - Total $ %(price)s - Monto pagado $ "
+"%(paid)s"
+
+#: admin.py:382
+msgid "General"
+msgstr "General"
+
+#: admin.py:494
+msgid "Total price"
+msgstr "Precio total"
+
+#: admin.py:506 templates/choreography/choreography_payment.html:66
+msgid "Deposit paid"
+msgstr "Seña total"
+
+#: admin.py:522
+msgid "Search by academy, date, choreography ID or name."
+msgstr "Buscar por academia, fecha, ID de coreografía o nombre."
+
+#: admin.py:535 admin.py:680
+msgid "Export to Excel"
+msgstr "Exportar a Excel"
+
+#: admin.py:540
+msgid "Payments list"
+msgstr "Lista de pagos"
+
+#: admin.py:543 templates/choreography/choreography_payment.html:149
+msgid "Date"
+msgstr "Fecha"
+
+#: admin.py:547 templates/choreography/choreography_export_pdf.html:40
+msgid "Amount"
+msgstr "Monto"
+
+#: admin.py:548 models.py:351
+msgid "Payment method"
+msgstr "Forma de pago"
+
+#: admin.py:558
+#, python-format
+msgid "%(count)d selected payment - Total $ %(amount)s"
+msgid_plural "%(count)d selected payments - Total $ %(amount)s"
+msgstr[0] "%(count)d pago seleccionado - Total $ %(amount)s"
+msgstr[1] "%(count)d pagos seleccionados - Total $ %(amount)s"
+
+#: admin.py:655
+msgid "Search by academy name, choreography ID or name."
+msgstr "Buscar por nombre de academia, ID o nombre de coreografía."
+
+#: admin.py:670 admin.py:697 templates/choreography/award_detail.html:148
+msgid "Average score"
+msgstr "Promedio"
+
+#: admin.py:685
+msgid "Awards list"
+msgstr "Lista de premios"
+
+#: admin.py:698 templates/choreography/award_detail.html:175
+msgid "Award"
+msgstr "Premio"
+
+#: admin.py:704
+#, python-format
+msgid "%(count)d selected award"
+msgid_plural "%(count)d selected awards"
+msgstr[0] "%(count)d premio seleccionado"
+msgstr[1] "%(count)d premios seleccionados"
+
+#: admin.py:820
+msgid "Search by PK, academy or choreography name."
+msgstr "Buscar por ID, academia o nombre de la coreografía."
+
+#: admin.py:840
+msgid "Lock selected scores."
+msgstr "Bloquear puntajes seleccionados."
+
+#: admin.py:845
+#, python-format
+msgid "%(locked)d score was locked."
+msgid_plural "%(locked)d scores were locked."
+msgstr[0] "%(locked)d puntaje fue bloqueado."
+msgstr[1] "%(locked)d puntajes fueron bloqueados."
+
+#: admin.py:853
+msgid "Unlock selected scores."
+msgstr "Desbloquear puntajes seleccionados."
+
+#: admin.py:858
+#, python-format
+msgid "%(unlocked)d score was unlocked."
+msgid_plural "%(unlocked)d scores were unlocked."
+msgstr[0] "%(unlocked)d puntaje fue desbloqueado."
+msgstr[1] "%(unlocked)d puntajes fueron desbloqueados."
+
+#: admin.py:866 templates/choreography/award_detail.html:124
+#: templates/choreography/score_list.html:17
+msgid "Feedback"
+msgstr "Devolución"
+
+#: admin.py:907 admin.py:951
+msgid "Search by academy, choreography ID or name."
+msgstr "Buscar por academia, ID o nombre de la coreografía."
+
+#: admin.py:966 templates/choreography/award_detail.html:122
+msgid "Judge"
+msgstr "Juez"
+
+#: forms.py:78
+#, python-format
+msgid ""
+"The selected dancers amount does not match the selected category: %(value)s."
+msgstr ""
+"La cantidad de bailarines seleccionados no coincide con la categoría "
+"seleccionada: %(value)s."
+
+#: forms.py:108
+#, python-format
+msgid ""
+"The group can only have up to 20 percent of its dancers older than the "
+"category maximum age: %(value)s."
+msgstr ""
+"El grupo puede tener solamente el 20 por ciento de sus bailarines mayores a "
+"la edad máxima de la categoría: %(value)s."
+
+#: forms.py:120
+#, python-format
+msgid ""
+"The group average age is greater than the category maximum age: %(value)s."
+msgstr ""
+"El promedio de edad del grupo es mayor a la edad máxima de la categoría: "
+"%(value)s."
+
+#: forms.py:133
+#, python-format
+msgid ""
+"Some of the selected dancers is older than the category maximum age: "
+"%(value)s."
+msgstr ""
+"Alguno de los bailarines seleccionados es mayor a la edad máxima de la "
+"categoría: %(value)s."
+
+#: forms.py:183
+msgid "The selected choreography already has an award assigned by the System."
+msgstr "La coreografía seleccionada ya tiene un premio asignado por el sistema."
+
+#: forms.py:218
+msgid "You don't have permissions to create an award assigned by the System."
+msgstr "No tenés permisos para crear un premio asignado por el sistema."
+
+#: forms.py:255 forms.py:276
+msgid ""
+"The discounts total amount cannot be greater than the choreography balance."
+msgstr "El monto total de los descuentos no puede ser mayor al saldo de la coreografía."
+
+#: forms.py:312 forms.py:333
+msgid ""
+"The payments total amount cannot be greater than the choreography total "
+"price."
+msgstr "El monto total de los pagos no puede ser mayor al precio total de la coreografía."
+
+#: models.py:20 templates/choreography/choreography_payment.html:155
+msgid "Cash"
+msgstr "Efectivo"
+
+#: models.py:21 templates/choreography/choreography_payment.html:156
+msgid "Wire"
+msgstr "Transferencia"
+
+#: models.py:22 templates/choreography/choreography_payment.html:157
+#: templates/choreography/payment_list.html:39
+msgid "Deposit"
+msgstr "Seña"
+
+#: models.py:23 templates/choreography/choreography_payment.html:158
+msgid "Credit card"
+msgstr "Tarjeta de crédito"
+
+#: models.py:24 templates/choreography/choreography_payment.html:159
+msgid "Other"
+msgstr "Otro"
+
+#: models.py:63
+msgid "academy"
+msgstr "academia"
+
+#: models.py:69
+msgid "event"
+msgstr "evento"
+
+#: models.py:75
+msgid "dance mode"
+msgstr "modalidad"
+
+#: models.py:81
+msgid "category"
+msgstr "categoría"
+
+#: models.py:88
+msgid "price"
+msgstr "precio"
+
+#: models.py:89
+msgid "Per dancer."
+msgstr "Por bailarín."
+
+#: models.py:95
+msgid "schedule"
+msgstr "cronograma"
+
+#: models.py:98
+msgid "dancers"
+msgstr "bailarines"
+
+#: models.py:103
+msgid "professors"
+msgstr "profesores"
+
+#: models.py:106
+msgid "name"
+msgstr "nombre"
+
+#: models.py:107
+msgid "duration"
+msgstr "duración"
+
+#: models.py:108 models.py:397
+msgid "is locked"
+msgstr "bloqueada"
+
+#: models.py:110
+msgid "is disqualified"
+msgstr "descalificada"
+
+#: models.py:112
+msgid "show awards"
+msgstr "mostrar premios"
+
+#: models.py:115
+msgid "order number"
+msgstr "número de orden"
+
+#: models.py:119
+msgid "music track"
+msgstr "archivo de música"
+
+#: models.py:123
+msgid "Allowed audio extensions: mp3, avi or wav up to 10 MB."
+msgstr "Extensiones de audio permitidas: mp3, avi or wav up to 10 MB."
+
+#: models.py:127
+msgid "The selected file does not have a valid audio extension."
+msgstr "El archivo seleccionado no tiene una extensión válida."
+
+#: models.py:142 models.py:279 models.py:322 models.py:347 models.py:378
+#: signals.py:63
+msgid "choreography"
+msgstr "coreografía"
+
+#: models.py:143
+msgid "choreographies"
+msgstr "coreografías"
+
+#: models.py:286
+msgid "assigned by"
+msgstr "asignado por"
+
+#: models.py:292
+msgid "award type"
+msgstr "tipo de premio"
+
+#: models.py:298
+msgid "award"
+msgstr "premio"
+
+#: models.py:299
+msgid "awards"
+msgstr "premios"
+
+#: models.py:324 models.py:349
+msgid "amount"
+msgstr "monto"
+
+#: models.py:329
+msgid "discount"
+msgstr "descuento"
+
+#: models.py:330
+msgid "discounts"
+msgstr "descuentos"
+
+#: models.py:355
+msgid "date"
+msgstr "fecha"
+
+#: models.py:360
+msgid "payment"
+msgstr "pago"
+
+#: models.py:361
+msgid "payments"
+msgstr "pagos"
+
+#: models.py:385
+msgid "judge"
+msgstr "juez"
+
+#: models.py:388
+msgid "value"
+msgstr "valor"
+
+#: models.py:393
+msgid "The value cannot be higher than 100."
+msgstr "El valor no puede ser mayor a 100."
+
+#: models.py:402 models.py:418
+msgid "score"
+msgstr "puntaje"
+
+#: models.py:403
+msgid "scores"
+msgstr "puntajes"
+
+#: models.py:421
+msgid "audio file"
+msgstr "archivo de audio"
+
+#: models.py:428
+msgid "feedback"
+msgstr "devolución"
+
+#: models.py:429
+msgid "feedbacks"
+msgstr "devoluciones"
+
+#: signals.py:18
+msgid "Default award"
+msgstr "Premio por defecto"
+
+#: signals.py:55
+msgid "New registered choreography"
+msgstr "Nueva coreografía registrada"
+
+#: tasks.py:29 tasks.py:31
+#, python-format
+msgid "Sent new %(value)s registration email."
+msgstr "Email de registro de nuevo/a %(value)s enviado."
+
+#: tasks.py:35 tasks.py:39
+#, python-format
+msgid "Failed trying to send a new %(value)s registration email."
+msgstr "Falló el envío de email de registro de nuevo/a %(value)s."
+
+#: tasks.py:76
+#, python-format
+msgid "Successfully updated %(count)d choreography price!"
+msgid_plural "Successfully updated %(count)d choreographies price!"
+msgstr[0] "Se actualizó el precio de %(count)d coreografía con éxito!"
+msgstr[1] "Se actualizó el precio de %(count)d coreografías con éxito!"
+
+#: tasks.py:86 tasks.py:88
+msgid "No choreography price was updated today."
+msgstr "Hoy no se actualizó el precio de ninguna coreografía."
+
+#: templates/choreography/award_certificate.html:14
+msgid "Award certificate"
+msgstr "Certificado de premio"
+
+#: templates/choreography/award_certificate.html:42
+msgid "CERTIFICATE OF PARTICIPATION"
+msgstr "CERTIFICADO DE PARTICIPACIÓN"
+
+#: templates/choreography/award_certificate.html:50
+msgid "This certificate is presented to"
+msgstr "Este certificado se le entrega a"
+
+#: templates/choreography/award_certificate.html:51
+msgid "for participating in the event"
+msgstr "por participar del evento"
+
+#: templates/choreography/award_certificate.html:52
+msgid "held on"
+msgstr "llevado a cabo en"
+
+#: templates/choreography/award_certificate.html:53
+msgid "from"
+msgstr "desde el"
+
+#: templates/choreography/award_certificate.html:53
+#: templates/choreography/event_list.html:27
+msgid "to"
+msgstr "hasta el"
+
+#: templates/choreography/award_certificate.html:55
+msgid "being awarded with"
+msgstr "premiado con"
+
+#: templates/choreography/award_certificate.html:57
+msgid "for the play"
+msgstr "por la obra"
+
+#: templates/choreography/award_certificate.html:74
+msgid "Judges"
+msgstr "Jueces"
+
+#: templates/choreography/award_certificate.html:77
+msgid "designed by"
+msgstr "diseñado por"
+
+#: templates/choreography/award_detail.html:24
+#: templates/choreography/award_list.html:11
+#: templates/choreography/choreography_detail.html:24
+#: templates/choreography/choreography_export_pdf.html:37
+#: templates/choreography/choreography_list.html:11
+#: templates/choreography/choreography_payment.html:54
+#: templates/choreography/choreography_registered_email.html:9
+#: templates/choreography/choreography_set_order_number.html:54
+#: templates/choreography/music_list.html:17
+#: templates/choreography/payment_detail.html:24
+#: templates/choreography/payment_list.html:38
+#: templates/choreography/score_list.html:12
+msgid "Name"
+msgstr "Nombre"
+
+#: templates/choreography/award_detail.html:51
+#: templates/choreography/award_detail.html:90
+msgid "Show certificate"
+msgstr "Mostrar certificado"
+
+#: templates/choreography/award_detail.html:63
+#: templates/choreography/choreography_detail.html:82
+#: templates/choreography/payment_detail.html:56
+msgid "The choreography has no related professors yet."
+msgstr "La coreografía no tiene profesores relacionados todavía."
+
+#: templates/choreography/award_detail.html:102
+#: templates/choreography/choreography_detail.html:116
+#: templates/choreography/payment_detail.html:90
+msgid "The choreography has no related dancers yet."
+msgstr "La coreografía no tiene bailarines relacionados todavía."
+
+#: templates/choreography/award_detail.html:113
+msgid "The choreography was disqualified."
+msgstr "La coreografía fue descalificada."
+
+#: templates/choreography/award_detail.html:123
+#: templates/choreography/score_list.html:16
+msgid "Score"
+msgstr "Puntaje"
+
+#: templates/choreography/award_detail.html:137
+#: templates/choreography/score_list.html:52
+msgid "No feedback"
+msgstr "Sin devolución"
+
+#: templates/choreography/award_detail.html:161
+msgid "The choreography has not been scored yet."
+msgstr "La coreografía no fue puntuada todavía."
+
+#: templates/choreography/award_detail.html:176
+msgid "Assigned by"
+msgstr "Asignado por"
+
+#: templates/choreography/award_detail.html:194
+msgid "The choreography does not have related awards."
+msgstr "La coreografía no tiene premios relacionados."
+
+#: templates/choreography/award_detail.html:204
+#: templates/choreography/award_list.html:51
+#: templates/choreography/choreography_detail.html:129
+#: templates/choreography/music_list.html:51
+#: templates/choreography/payment_detail.html:213
+#: templates/choreography/payment_list.html:80
+msgid "Go back"
+msgstr "Volver"
+
+#: templates/choreography/award_list.html:14
+msgid "Awards"
+msgstr "Premios"
+
+#: templates/choreography/award_list.html:51
+#: templates/choreography/music_list.html:51
+#: templates/choreography/payment_list.html:80
+msgid "There are no registered choreographies for the selected event."
+msgstr "No existen coreografías registradas para el evento seleccionado."
+
+#: templates/choreography/award_list.html:55
+#: templates/choreography/choreography_list.html:46
+msgid "No choreographies have yet been registered. You can start by clicking "
+msgstr ""
+"Todavía no existen coreografías registradas. Podés empezar haciendo click "
+
+#: templates/choreography/award_list.html:55
+#: templates/choreography/choreography_form.html:109
+#: templates/choreography/choreography_form.html:163
+#: templates/choreography/choreography_list.html:46
+#: templates/choreography/payment_list.html:84
+msgid "here"
+msgstr "acá"
+
+#: templates/choreography/choreography_detail.html:30
+msgid "Duration"
+msgstr "Duración"
+
+#: templates/choreography/choreography_detail.html:39
+msgid "Music track"
+msgstr "Archivo de música"
+
+#: templates/choreography/choreography_detail.html:47
+#: templates/choreography/choreography_list.html:33
+msgid "Music track missing"
+msgstr "Falta archivo de música"
+
+#: templates/choreography/choreography_detail.html:107
+msgid "years old"
+msgstr "años"
+
+#: templates/choreography/choreography_form.html:54
+#: templates/choreography/score_list.html:66
+msgid "Delete"
+msgstr "Eliminar"
+
+#: templates/choreography/choreography_form.html:103
+msgid "You must select at least one professor."
+msgstr "Se debe seleccionar al menos un profesor."
+
+#: templates/choreography/choreography_form.html:109
+#: templates/choreography/choreography_form.html:163
+msgid "No professors have yet been registered. You can start by clicking "
+msgstr ""
+"Todavía no existen profesores registrados. Podés empezar haciendo click "
+
+#: templates/choreography/choreography_form.html:126
+msgid "Age"
+msgstr "Edad"
+
+#: templates/choreography/choreography_form.html:157
+msgid "You must select at least one dancer."
+msgstr "Se debe seleccionar al menos un bailarín."
+
+#: templates/choreography/choreography_list.html:14
+msgid "Status"
+msgstr "Estado"
+
+#: templates/choreography/choreography_list.html:30
+msgid "Complete"
+msgstr "Completo"
+
+#: templates/choreography/choreography_list.html:34
+msgid "Incomplete"
+msgstr "Incompleto"
+
+#: templates/choreography/choreography_payment.html:19
+#: templates/choreography/choreography_set_order_number.html:20
+msgid "Home"
+msgstr "Inicio"
+
+#: templates/choreography/choreography_payment.html:20
+#: templates/choreography/choreography_set_order_number.html:21
+msgid "Choreography"
+msgstr "Coreografía"
+
+#: templates/choreography/choreography_payment.html:21
+#: templates/choreography/choreography_set_order_number.html:22
+msgid "Choreographies"
+msgstr "Coreografías"
+
+#: templates/choreography/choreography_payment.html:32
+#: templates/choreography/choreography_set_order_number.html:33
+#, python-format
+msgid "%(choreographies_amount)s choreography selected."
+msgid_plural "%(choreographies_amount)s choreographies selected."
+msgstr[0] "%(choreographies_amount)s coreografía seleccionada."
+msgstr[1] "%(choreographies_amount)s coreografías seleccionadas."
+
+#: templates/choreography/choreography_payment.html:63
+#: templates/choreography/payment_detail.html:129
+msgid "Deposit amount"
+msgstr "Monto de la seña"
+
+#: templates/choreography/choreography_payment.html:69
+#: templates/choreography/payment_list.html:22
+msgid "Total amount"
+msgstr "Monto total"
+
+#: templates/choreography/choreography_payment.html:72
+msgid "Is paid"
+msgstr "Pagado"
+
+#: templates/choreography/choreography_payment.html:132
+#: templates/choreography/choreography_set_order_number.html:102
+#: templates/choreography/music_list.html:21
+#: templates/choreography/score_list.html:18
+msgid "Actions"
+msgstr "Acciones"
+
+#: templates/choreography/choreography_payment.html:134
+msgid "Deposit total amount"
+msgstr "Monto total de la seña"
+
+#: templates/choreography/choreography_payment.html:139
+msgid "Balance total amount"
+msgstr "Monto total del saldo"
+
+#: templates/choreography/choreography_payment.html:154
+msgid "Select payment method"
+msgstr "Seleccionar forma de pago"
+
+#: templates/choreography/choreography_payment.html:163
+msgid "Pay deposit"
+msgstr "Pagar seña"
+
+#: templates/choreography/choreography_payment.html:164
+msgid "Pay balance"
+msgstr "Pagar saldo"
+
+#: templates/choreography/choreography_registered_email.html:4
+msgid ""
+"This is an automatically sent email from a new registered choreography with "
+"the following information:"
+msgstr ""
+"Este es un email enviado automáticamente por el registro de una nueva "
+"coreografía con la siguiente información:"
+
+#: templates/choreography/choreography_registered_email.html:7
+msgid "Event"
+msgstr "Evento"
+
+#: templates/choreography/choreography_registered_email.html:8
+msgid "ID"
+msgstr "ID"
+
+#: templates/choreography/choreography_registered_email.html:13
+msgid "The On Stage team"
+msgstr "El equipo de On Stage"
+
+#: templates/choreography/choreography_set_order_number.html:50
+msgid "New number"
+msgstr "Nuevo número"
+
+#: templates/choreography/choreography_set_order_number.html:107
+msgid "Save new order"
+msgstr "Guardar nuevo orden"
+
+#: templates/choreography/choreography_set_order_number.html:109
+msgid "Set default order"
+msgstr "Definir orden por defecto"
+
+#: templates/choreography/event_list.html:7
+msgid "Select an event to start."
+msgstr "Elegí un evento para empezar"
+
+#: templates/choreography/event_list.html:16
+msgid "Ended"
+msgstr "Finalizado"
+
+#: templates/choreography/event_list.html:27
+msgid "From"
+msgstr "Desde el"
+
+#: templates/choreography/music_list.html:9
+msgid "There are no registered choreographies for the selected schedule."
+msgstr "No existen coreografías registradas para el cronograma seleccionado."
+
+#: templates/choreography/music_list.html:9
+msgid "Clear search"
+msgstr "Limpiar búsqueda"
+
+#: templates/choreography/music_list.html:34
+msgid "Download"
+msgstr "Descargar"
+
+#: templates/choreography/payment_detail.html:103
+msgid "Payments"
+msgstr "Pagos"
+
+#: templates/choreography/payment_detail.html:120
+msgid "The choreography has no registered payments yet."
+msgstr "La coreografía no tiene pagos registrados todavía."
+
+#: templates/choreography/payment_detail.html:137
+msgid "Choreography total price"
+msgstr "Precio total de la coreografía."
+
+#: templates/choreography/payment_detail.html:146
+msgid "Discount"
+msgstr "Descuento"
+
+#: templates/choreography/payment_detail.html:170
+msgid ""
+"In order to freeze the costs detailed above, the deposit must be paid before"
+msgstr ""
+"Para congelar los costos detallados más arriba, se debe pagar la seña antes "
+"del"
+
+#: templates/choreography/payment_detail.html:172
+msgid "After this, costs may vary"
+msgstr "Luego de esto los costos pueden variar"
+
+#: templates/choreography/payment_detail.html:179
+msgid "Bank information for wires or deposits"
+msgstr "Información bancaria para transferencias o depósitos"
+
+#: templates/choreography/payment_detail.html:182
+msgid "Bank name"
+msgstr "Nombre del banco"
+
+#: templates/choreography/payment_detail.html:185
+msgid "Account owner"
+msgstr "Titular de la cuenta"
+
+#: templates/choreography/payment_detail.html:188
+msgid "Account owner ID number"
+msgstr "Número de ID del titular de la cuenta"
+
+#: templates/choreography/payment_detail.html:191
+msgid "Account type"
+msgstr "Tipo de cuenta"
+
+#: templates/choreography/payment_detail.html:194
+msgid "Routing number"
+msgstr "Número de CBU"
+
+#: templates/choreography/payment_detail.html:197
+msgid "Alias"
+msgstr "Alias"
+
+#: templates/choreography/payment_detail.html:204
+msgid "Once a wire or deposit was made, send an email to"
+msgstr "Una vez realizada la transferencia o el depósito, enviar un email a"
+
+#: templates/choreography/payment_detail.html:206
+msgid "attaching the receipt and the ID of the choreography that is being paid"
+msgstr "adjuntando el comprobante y el ID de la coreografía pagada"
+
+#: templates/choreography/payment_list.html:10
+msgid "Choreographies amount"
+msgstr "Cantidad de coreografías"
+
+#: templates/choreography/payment_list.html:16
+msgid "Total deposit amount"
+msgstr "Monto total de la seña"
+
+#: templates/choreography/payment_list.html:28
+msgid "Total balance amount"
+msgstr "Monto total del saldo"
+
+#: templates/choreography/payment_list.html:53
+#: templates/choreography/payment_list.html:65
+msgid "Paid"
+msgstr "Pagado"
+
+#: templates/choreography/payment_list.html:84
+msgid "No choreographies have yet been registered. You can start by clicking"
+msgstr ""
+"Todavía no existen coreografías registradas. Podés empezar haciendo click"
+
+#: templates/choreography/score_list.html:49
+msgid "Record"
+msgstr "Grabar"
+
+#: templates/choreography/score_list.html:80
+msgid "Qualify"
+msgstr "Calificar"
+
+#: templates/choreography/score_list.html:80
+msgid "Disqualify"
+msgstr "Descalificar"
+
+#: templates/choreography/score_list.html:96
+msgid "Save"
+msgstr "Guardar"
+
+#: templates/choreography/score_list.html:106
+msgid "Confirm save"
+msgstr "Confirmar guardado"
+
+#: templates/choreography/score_list.html:112
+msgid "Once saved, score and feedback"
+msgstr "Una vez guardado, el puntaje y la devolución"
+
+#: templates/choreography/score_list.html:113
+msgid "CANNOT"
+msgstr "NO PUEDEN"
+
+#: templates/choreography/score_list.html:114
+msgid "be modified"
+msgstr "modificarse"
+
+#: templates/choreography/score_list.html:115
+msgid "Are you sure you want to continue?"
+msgstr "Estás seguro que querés continuar?"
+
+#: templates/choreography/score_list.html:121
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: templates/choreography/score_list.html:124
+#: templates/choreography/score_list.html:149
+msgid "Confirm"
+msgstr "Confirmar"
+
+#: templates/choreography/score_list.html:137
+msgid "Alert"
+msgstr "Alerta"
+
+#: templates/choreography/score_list.html:143
+msgid "Remember to save the changes before you continue!"
+msgstr "Acordate de guardar los cambios antes de continuar!"
+
+#: templates/choreography/score_list.html:158
+msgid "There are no registered scores for the selected event or for today."
+msgstr ""
+"No existen puntajes registrados para el evento seleccionado o para hoy."
+
+#: views.py:42
+msgid "Event list"
+msgstr "Lista de eventos"
+
+#: views.py:100 views.py:435
+msgid "Search by dance mode, category or professor."
+msgstr "Buscar por modalidad, categoría o profesor."
+
+#: views.py:101
+msgid "Choreography list"
+msgstr "Lista de coreografías"
+
+#: views.py:131
+msgid "Registration for the selected event has ended."
+msgstr "Las inscripciones al evento seleccionado ya cerraron."
+
+#: views.py:153
+msgid "Add choreography"
+msgstr "Agregar coreografía"
+
+#: views.py:174 views.py:312
+msgid ""
+"The system could not add a new choreography since there is no price set for "
+"it."
+msgstr ""
+"El sistema no pudo agregar una nueva coreografía ya que no existe un precio "
+"asignado para la misma."
+
+#: views.py:191 views.py:330
+msgid ""
+"The system could not add a new choreography since there is no schedule set "
+"for it."
+msgstr ""
+"El sistema no pudo agregar una nueva coreografía ya que no existe un "
+"cronograma asignado para la misma."
+
+#: views.py:197
+msgid "Successfully added a new choreography!"
+msgstr "Coreografía agregada con éxito!"
+
+#: views.py:226 views.py:266 views.py:466 views.py:622 views.py:741
+#: views.py:838
+msgid "You don't have permissions to perform this action."
+msgstr "No tenés permisos para realizar esta acción."
+
+#: views.py:233
+msgid "Choreography detail"
+msgstr "Detalle de la coreografía"
+
+#: views.py:287
+msgid "Update choreography"
+msgstr "Modificar coreografía"
+
+#: views.py:289
+msgid "Complete choreography"
+msgstr "Completar coreografía"
+
+#: views.py:337
+msgid "Successfully updated the choreography information!"
+msgstr "La información de la coreografía se modificó con éxito!"
+
+#: views.py:373
+#, python-format
+msgid "Successfully updated %(count)d choreography order number!"
+msgid_plural "Successfully updated %(count)d choreographies order number!"
+msgstr[0] "El número de orden de %(count)d coreografía se actualizó con éxito!"
+msgstr[1] ""
+"El número de orden de %(count)d coreografías se actualizó con éxito!"
+
+#: views.py:436
+msgid "Award list"
+msgstr "Lista de premios"
+
+#: views.py:474
+msgid "Award detail"
+msgstr "Detalle de premios"
+
+#: views.py:586
+msgid "Search by category or choreography name."
+msgstr "Buscar por categoría o nombre de la coreografía."
+
+#: views.py:591
+msgid "Payment list"
+msgstr "Lista de pagos"
+
+#: views.py:638
+msgid "Payment detail"
+msgstr "Detalle de pagos"
+
+#: views.py:648
+msgid "Select at least one choreography."
+msgstr "Seleccionar al menos una coreografía."
+
+#: views.py:656
+msgid "Select a valid payment method."
+msgstr "Seleccionar una forma de pago válida."
+
+#: views.py:663
+msgid "Select a valid payment date."
+msgstr "Seleccionar una fecha de pago válida."
+
+#: views.py:669
+msgid "The payment date cannot be later than today."
+msgstr "La fecha de pago no puede ser posterior al día de hoy."
+
+#: views.py:695
+#, python-format
+msgid "Successfully created %(count)d payment!"
+msgid_plural "Successfully created %(count)d payments!"
+msgstr[0] "Se agregó %(count)d pago con éxito!"
+msgstr[1] "Se agregaron %(count)d pagos con éxito!"
+
+#: views.py:763
+msgid "Score list"
+msgstr "Lista de puntajes"
+
+#: views.py:822
+#, python-format
+msgid "Successfully locked %(count)d score!"
+msgid_plural "Successfully locked %(count)d scores!"
+msgstr[0] "Se bloqueó %(count)d puntaje!"
+msgstr[1] "Se bloquearon %(count)d puntajes!"
+
+#: views.py:828
+msgid "No scores were found to lock."
+msgstr "No se encontraron puntajes para bloquear."
+
+#: views.py:845
+msgid "Feedback successfully deleted."
+msgstr "Devolución eliminada con éxito."
+
+#: views.py:880
+msgid "Music list"
+msgstr "Lista de música"

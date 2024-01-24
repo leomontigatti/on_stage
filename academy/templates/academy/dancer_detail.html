@@ -1,0 +1,92 @@
+{% extends "card.html" %}
+{% load static  i18n %}
+
+{% block card_body %}
+
+    <div class="row gx-2">
+        <div class="col-sm">
+            <div class="input-group pb-2">
+                <span class="input-group-text">{% translate "First name" %}</span>
+                <span class="form-control">{{ object.first_name }}</span>
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="input-group pb-2">
+                <span class="input-group-text">{% translate "Last name" %}</span>
+                <span class="form-control">{{ object.last_name }}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row gx-2">
+        <div class="col-sm">
+            <div class="input-group pb-2">
+                <span class="input-group-text">{% translate "Birth date" %}</span>
+                <span class="form-control">{{ object.birth_date|date:"SHORT_DATE_FORMAT" }}</span>
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="input-group pb-2">
+                <span class="input-group-text">{% translate "Identification type" %}</span>
+                <span class="form-control">{{ object.get_identification_type_display }}</span>
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="input-group pb-2">
+                <span class="input-group-text">{% translate "Identification number" %}</span>
+                <span class="form-control">{{ object.identification_number }}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row gx-2 mb-2">
+        <div class="col-sm">
+            <p class="my-2">{% translate "Identification front image" %}</p>
+            {% if object.identification_front_image %}
+                <img src="{{ object.identification_front_image.url }}" class="img-fluid rounded mx-auto d-block" height="250" width="400" alt="">
+            {% else %}
+                <img src="{% static 'academy/images/id_card_front.svg' %}" class="img-fluid rounded mx-auto d-block" height="250" width="400" alt="">
+            {% endif %}
+        </div>
+        <div class="col-sm">
+            <p class="my-2">{% translate "Identification back image" %}</p>
+            {% if object.identification_back_image %}
+                <img src="{{ object.identification_back_image.url }}" class="img-fluid rounded mx-auto d-block" height="250" width="400" alt="">
+            {% else %}
+                <img src="{% static 'academy/images/id_card_back.svg' %}" class="img-fluid rounded mx-auto d-block" height="250" width="400" alt="">
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="table-responsive mt-4">
+        <table class="table table-striped align-middle text-center">
+            <thead>
+                <tr class="dark">
+                    <td scope="col" class="align-middle">ID</td>
+                    <td scope="col" class="align-middle">{% translate "Choreography name" %}</td>
+                    <td scope="col" style="width: 30%;">
+                        {% include "event_filter.html" %}
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for choreography in choreographies_qs %}
+                    <tr>
+                        <td>{{ choreography.pk }}</td>
+                        <td colspan="2">
+                            <a href="{{ choreography.get_absolute_url }}" class="text-decoration-none">
+                                {{ choreography.name }}
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="row justify-content-center gx-2 pt-2">
+        {% include "go_back_button.html" %}
+        {% include "update_button.html" %}
+    </div>
+
+{% endblock card_body %}

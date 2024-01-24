@@ -1,0 +1,12 @@
+{% load i18n %}
+
+<div class="align-self-center">
+    <form method="get">
+        <select class="form-select" onChange="this.form.submit()" name="event">
+            <option value selected disabled>{% translate "Filter by event" %}</option>
+            {% for event in events_qs %}
+                <option value="{{ event.id }}" {% if selected_event == event.id|slugify %}selected{% endif %}>{{ event }}</option>
+            {% endfor %}
+        </select>
+    </form>
+</div>

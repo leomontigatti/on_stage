@@ -1,0 +1,90 @@
+{% extends "card.html" %}
+{% load i18n custom_tags %}
+
+{% block card_body %}
+
+    {% if page_obj %}
+        <div class="row gx-2 mb-2">
+            <div class="col-sm">
+                <div class="input-group pb-2">
+                    <span class="input-group-text">{% translate "Choreographies amount" %}</span>
+                    <span class="form-control">{{ choreographies_amount }}</span>
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="input-group pb-2">
+                    <span class="input-group-text">{% translate "Total deposit amount" %}</span>
+                    <span class="form-control">$ {{ deposit_total|floatformat:2 }}</span>
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="input-group pb-2">
+                    <span class="input-group-text">{% translate "Total amount" %}</span>
+                    <span class="form-control">$ {{ amount_total|floatformat:2 }}</span>
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="input-group pb-2">
+                    <span class="input-group-text">{% translate "Total balance amount" %}</span>
+                    <span class="form-control">$ {{ balance_total|floatformat:2 }}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-striped align-middle text-center">
+                <thead>
+                    <tr class="dark">
+                        <td scope="col">{% translate "Name" %}</td>
+                        <td scope="col">{% translate "Deposit" %}</td>
+                        <td scope="col">{% translate "Total" %}</td>
+                        <td scope="col">{% translate "Balance" %}</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for object in page_obj %}
+                        <tr>
+                            <td>
+                                <a href="{% url 'payment_detail' object.pk %}" class="text-decoration-none">
+                                    {{ object.name }}
+                                </a>
+                            </td>
+                            {% if object.deposit_paid %}
+                                <td class="text-success" data-bs-toggle="tooltip" data-bs-title="{% translate 'Paid' %}">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                </td>
+                            {% else %}
+                                <td class="text-danger">
+                                    $ {{ object.deposit_amount|floatformat:2 }}
+                                </td>
+                            {% endif %}
+                            <td>
+                                $ {{ object.total_price|floatformat:2 }}
+                            </td>
+                            {% if object.deposit_paid and object.fully_paid %}
+                                <td class="text-success" data-bs-toggle="tooltip" data-bs-title="{% translate 'Paid' %}">
+                                    $ -
+                                </td>
+                            {% else %}
+                                <td class="text-danger">
+                                    $ {{ object.balance|floatformat:2 }}
+                                </td>
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% elif event.ended %}
+            <i class="bi bi-exclamation-circle me-2"></i>
+            {% translate "There are no registered choreographies for the selected event." %} <a href="{% url 'event_list' model|get_class %}" class="text-decoration-none">{% translate "Go back" %}</a>.
+    {% else %}
+        <p class="m-2">
+            <i class="bi bi-exclamation-circle me-2"></i>
+            {% translate "No choreographies have yet been registered. You can start by clicking" %} <a href="{% url 'choreography_create' event.pk %}" class="text-decoration-none">{% translate "here" %}</a>.
+        </p>
+    {% endif %}
+
+    {% include "pagination.html" %}
+
+{% endblock card_body %}

@@ -1,0 +1,75 @@
+{% load static i18n custom_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="{% static 'staticfiles/images/os_icon.ico' %}"/>
+        <link rel="stylesheet" href="{% static 'staticfiles/css/global.css' %}">
+
+        {% include 'bootstrap.html' %}
+
+        <title>On Stage | {{ model|verbose_name_plural|title }}</title>
+
+        <style>
+            @page {
+                size: landscape;
+                margin-bottom: 20px;
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <table class="table table-bordered table-sm" style="font-size: 10px;">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">{% translate "Order number" %}</th>
+                        <th scope="col">{% translate "Category" %}</th>
+                        <th scope="col">{% translate "Dance mode" %}</th>
+                        <th scope="col">{% translate "Academy" %}</th>
+                        <th scope="col">{% translate "State" %}</th>
+                        <th scope="col">{% translate "Name" %}</th>
+                        <th scope="col">{% translate "Professors" %}</th>
+                        <th scope="col">{% translate "Dancers" %}</th>
+                        <th scope="col">{% translate "Amount" %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for choreography in choreographies_list %}
+                        <tr class="align-middle">
+                            <td class="text-center">
+                                {% if choreography.order_number %}
+                                    {{ choreography.order_number }}
+                                {% else %}
+                                    -
+                                {% endif %}
+                            </td>
+                            <td>{{ choreography.category }}</td>
+                            <td>{{ choreography.dance_mode }}</td>
+                            <td>{{ choreography.academy }}</td>
+                            <td>{{ choreography.academy.state }}</td>
+                            <td>{{ choreography.name }}</td>
+                            <td>
+                                {% for professor in choreography.professors.all %}
+                                    - {{ professor }}<br>
+                                {% endfor %}
+                            </td>
+                            <td>
+                                {% for dancer in choreography.dancers.all %}
+                                    - {{ dancer }}<br>
+                                {% endfor %}
+                            </td>
+                            <td class="text-center">{{ choreography.dancers.count }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

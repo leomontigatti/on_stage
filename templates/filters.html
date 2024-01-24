@@ -1,0 +1,37 @@
+{% load static custom_tags i18n %}
+
+<div class="col-sm-2">
+    <form method="get" id="filtersForm" class="p-2 border rounded filters-form">
+        <div class="d-flex justify-content-between px-1 pb-2 border-bottom">
+            {% translate "FILTER" %}
+            <span class="text-primary" onclick="clearFilters()" name="clear-filters">
+                {% translate "Clear filters" %}
+            </span>
+        </div>
+
+        {% for key, value in filter_options.items %}
+            <label class="fw-bold my-2 mx-1">{% translate "By" %} {{ key }}</label>
+            <ul class="mb-0">
+                <li id="{{ key }}" class="text-secondary ms-1 selected"
+                onclick="showAll()" name="show-all">
+                    {% translate "Show all" %}
+                </li>
+                {% for object in value %}
+                    {% if object|get_class == "tuple" %}
+                        <li name="{{ key }}" id="{{ object.0 }}" class="text-secondary ms-1"
+                        onclick="setFilter()">
+                            {{ object.1 }}
+                        </li>
+                    {% else %}
+                        <li name="{{ key }}" id="{{ object.id }}" class="text-secondary ms-1"
+                        onclick="setFilter()">
+                            {{ object }}
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        {% endfor %}
+    </form>
+</div>
+
+<script src="{% static 'staticfiles/js/filters.js' %}"></script>

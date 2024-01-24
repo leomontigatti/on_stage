@@ -1,0 +1,166 @@
+{% extends "card.html" %}
+{% load static i18n %}
+
+{% block card_body %}
+
+    {% if page_obj %}
+        <div class="table-responsive-md">
+            <table class="table table-striped align-middle text-center">
+                <thead>
+                    <tr class="dark align-middle">
+                        <td scope="col" style="width: 8%;">{% translate "Order number" %}</td>
+                        <td scope="col">{% translate "Name" %}</td>
+                        <td scope="col">{% translate "Academy" %}</td>
+                        <td scope="col">{% translate "Category" %}</td>
+                        <td scope="col">{% translate "Dance mode" %}</td>
+                        <td scope="col" style="width: 12%;">{% translate "Score" %}</td>
+                        <td scope="col" style="width: 17%;">{% translate "Feedback" %}</td>
+                        <td scope="col" style="width: 12%;">{% translate "Actions" %}</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for object in page_obj %}
+                        <tr>
+                            <td{% if object.choreography.is_disqualified %} class="text-decoration-line-through"{% endif %}>
+                                {% if not object.choreography.order_number %}
+                                    -
+                                {% else %}
+                                    {{ object.choreography.order_number }}
+                                {% endif %}
+                            </td>
+                            <td{% if object.choreography.is_disqualified %} class="text-decoration-line-through"{% endif %}>{{ object.choreography.name }}</td>
+                            <td{% if object.choreography.is_disqualified %} class="text-decoration-line-through"{% endif %}>{{ object.choreography.academy.name }}</td>
+                            <td{% if object.choreography.is_disqualified %} class="text-decoration-line-through"{% endif %}>{{ object.choreography.category }}</td>
+                            <td{% if object.choreography.is_disqualified %} class="text-decoration-line-through"{% endif %}>{{ object.choreography.dance_mode.name }}</td>
+                            <td>
+                                <form id="{{ object.pk }}_form" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="score_pk" id="score_pk" value="{{ object.pk }}">
+                                    <input type="number" class="form-control mx-auto{% if object.is_locked %} readonly-score{% endif %}" name="score_value" step="1" min="0" max="100"
+                                    value="{% if object.value != None %}{{ object.value }}{% endif %}"
+                                    style="width: 5rem;" onchange="getSubmitButton(this)" onkeyup="getSubmitButton(this)" id="{{ object.pk }}_input"
+                                    {% if object.choreography.is_disqualified %} disabled{% endif %}>
+                                </form>
+                            </td>
+                            <td>
+                                {% if not object.feedback %}
+                                    {% if not object.is_locked and not object.choreography.is_disqualified %}
+                                        <button type="button" id="{{ object.pk }}_record" class="btn btn-outline-danger rounded-pill" onclick="startRecording(this)">
+                                            <i class="bi bi-record-circle me-2"></i>{% translate "Record" %}
+                                        </button>
+                                    {% else %}
+                                        {% translate "No feedback" %}
+                                    {% endif %}
+                                {% else %}
+                                    {% if object.is_locked %}
+                                        <button type="button" id="{{ object.pk }}_play" class="btn btn-outline-primary rounded-pill" data-url="{{ object.feedback.music_track.url }}"
+                                        {% if object.is_locked %}data-is-locked{% endif %} onclick="playAudio(this)">
+                                            <i class="bi bi-play-fill me-2"></i>Play
+                                        </button>
+                                    {% else %}
+                                        <div class="btn-group">
+                                            <button type="button" id="{{ object.pk }}_play" class="btn btn-outline-primary rounded-start-pill" data-url="{{ object.feedback.music_track.url }}" onclick="playAudio(this)">
+                                                <i class="bi bi-play-fill me-2"></i>Play
+                                            </button>
+                                            <a href="{% url 'delete_feedback' object.pk %}?page={{ page_obj.number }}" id="{{ object.pk }}_delete" class="btn btn-outline-danger rounded-end-pill">
+                                                {% translate "Delete" %}<i class="bi bi-trash3-fill ms-2"></i>
+                                            </a>
+                                        </div>
+                                    {% endif %}
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if object.is_locked %}
+                                    <span class="btn btn-outline-secondary rounded-circle disabled">
+                                        <i class="bi bi-lock-fill"></i>
+                                    </span>
+                                {% else %}
+                                    <span id="{{ object.pk }}_actions">
+                                        <a href="{% url 'toggle_disqualified' object.choreography.pk %}?page={{ page_obj.number }}"
+                                        data-bs-toggle="tooltip" data-bs-title="{% if object.choreography.is_disqualified %}{% translate 'Qualify' %}{% else %}{% translate 'Disqualify' %}{% endif %}"
+                                        class="btn btn-outline-{% if object.choreography.is_disqualified %}primary{% else %}warning{% endif %} rounded-circle">
+                                            <i class="bi bi-{% if object.choreography.is_disqualified %}plus{% else %}x{% endif %}-lg"></i>
+                                        </a>
+                                    </span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        {# Confirmation modal trigger button. #}
+        <div class="text-center mb-3">
+            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#confirmationModal">
+                <i class="bi bi-save me-2"></i>{% translate "Save" %}
+            </button>
+        </div>
+
+        {# Confirmation modal. #}
+        <div class="modal fade" id="confirmationModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="fw-bold modal-title fs-5" id="confirmationModalLabel">
+                            {% translate "Confirm save" %}
+                        </h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <div class="modal-body text-center">
+                        {% translate "Once saved, score and feedback" %}
+                        <strong> {% translate "CANNOT" %} </strong>
+                        {% translate "be modified" %}.
+                        <br>{% translate "Are you sure you want to continue?" %}
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary"
+                        data-bs-dismiss="modal">
+                            {% translate "Cancel" %}
+                        </button>
+                        <a href="{% url 'lock_scores' event.pk %}" class="btn btn-outline-primary">
+                            <i class="bi bi-check-lg me-2"></i>{% translate "Confirm" %}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {# Alert modal. #}
+        <div class="modal fade" id="alertModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="fw-bold modal-title fs-5" id="confirmationModalLabel">
+                            {% translate "Alert" %}
+                        </h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <div class="modal-body text-center">
+                        {% translate "Remember to save the changes before you continue!" %}
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-primary"
+                        data-bs-dismiss="modal">
+                            {% translate "Confirm" %}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <p class="m-2">
+            <i class="bi bi-exclamation-circle me-2"></i>
+            {% translate "There are no registered scores for the selected event or for today." %}
+        </p>
+    {% endif %}
+
+    {% include "pagination.html" %}
+
+    <script src="{% static 'choreography/js/score_list.js' %}"></script>
+
+{% endblock card_body %}

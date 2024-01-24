@@ -1,0 +1,41 @@
+{% extends "card.html" %}
+{% load static i18n custom_tags %}
+
+{% block card_body %}
+
+    {% if seminar_list %}
+        <div class="row justify-content-between text-center">
+            {% for seminar in seminar_list %}
+                <div class="col-sm gy-2">
+                    <div class="card teacher" style="background-color: #f8f9fa;">
+                        {% if seminar.is_full or seminar.registration_ended %}
+                            <div class="alert alert-warning position-absolute top-50 start-50 translate-middle w-100 text-center">
+                                {% if seminar.registration_ended %}{% translate "Registration ended" %}{% else %}{% translate "Full" %}{% endif %}
+                            </div>
+                        {% endif %}
+                        <a href="{% url 'seminarregistration_create' seminar.pk %}" class="text-reset text-decoration-none">
+                            {% if seminar.teacher_picture %}
+                                <img src="{{ seminar.teacher_picture.url }}" class="card-img-top rounded-circle crop mt-2">
+                            {% else %}
+                                <img src="{% static 'seminar/images/teacher_no_picture.svg' %}" class="card-img-top rounded crop mt-2">
+                            {% endif %}
+                            <div class="card-body">
+                                <p class="card-title">{% translate "Teacher" %}: <strong>{{ seminar.teacher }}</strong></p>
+                                {% if seminar.date and seminar.time %}
+                                    <p class="card-text"><small class="text-body-secondary">{% translate "Date and time" %}: <strong>{{ seminar.date|date:"SHORT_DATE_FORMAT" }} {{ seminar.time }}</strong></small></p>
+                                {% else %}
+                                    <p class="card-text"><small class="text-body-secondary">{% translate "Date and time" %}: <strong>{% translate "not set yet" %}</strong></small></p>
+                                {% endif %}
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <i class="bi bi-exclamation-circle me-1"></i>
+        {% translate "There are no seminars registered for the selected event" %}.
+        <a href="{% url 'event_list' model|get_class %}" class="text-decoration-none">{% translate "Go back" %}</a>.
+    {% endif %}
+
+{% endblock card_body %}

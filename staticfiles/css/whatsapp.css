@@ -1,0 +1,22 @@
+.floating-btnz {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 30px;
+    right: 30px;
+    background: #25D366;
+    display: flex;
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 35px;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 2px 2px 5px rgba(0,0,0, 0.25);
+    border: none;
+    cursor: pointer;
+}
+
+.floating-btnz:hover {
+    background: #25d365a7;
+}

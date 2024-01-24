@@ -1,0 +1,34 @@
+{% extends "registration/login_base.html" %}
+{% load static widget_tweaks i18n %}
+
+{% block title %}{% translate "Log in" %}{% endblock title %}
+
+{% block content %}
+
+    {% with WIDGET_ERROR_CLASS='is-invalid' %}
+        <form method="post" class="form-signin" novalidate>
+            {% csrf_token %}
+
+            <img class="mb-4 img-fluid rounded-circle" src="{% static 'staticfiles/images/os_black_bg.png' %}" alt="" width="200">
+
+            <p class="h3 m-3 font-weight-normal">On Stage</p>
+
+            {% render_field form.username class="form-control" placeholder=form.username.label %}
+            <div class="invalid-feedback">
+                {{ form.username.errors|first }}
+            </div>
+            {% render_field form.password class="form-control" placeholder=form.password.label %}
+            <div class="invalid-feedback">
+                {{ form.password.errors|first }}
+            </div>
+
+            <input type="submit" value="{% translate "Log in" %}" class="btn btn-outline-primary m-3">
+
+            <div class="my-2">
+                <p class="h6">{% translate "Don't have an account?" %} <a href="{% url 'signup' %}" class="text-decoration-none">{% translate "Sign up" %}</a></p>
+                <a href="{% url 'password_reset' %}" class="text-decoration-none fw-medium">{% translate "Forgot your password?" %}</a>
+            </div>
+        </form>
+    {% endwith %}
+
+{% endblock content %}

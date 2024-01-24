@@ -1,0 +1,15 @@
+{% load i18n %}
+{% autoescape off %}
+
+{% translate "This is an automatically sent email from a new registered choreography with the following information:" %}
+
+{% translate "Academy" %}: {{ choreography.academy}}
+{% translate "Event" %}: {{ choreography.event }}
+{% translate "ID" %}: {{ choreography.id }}
+{% translate "Name" %}: {{ choreography.name }}
+{% translate "Category" %}: {{ choreography.category }}
+{% translate "Dance mode" %}: {{ choreography.dance_mode }}
+
+{% translate "The On Stage team" %}.
+
+{% endautoescape %}

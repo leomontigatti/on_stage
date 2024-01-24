@@ -1,0 +1,104 @@
+{% extends "card.html" %}
+{% load static widget_tweaks i18n %}
+
+{% block card_body %}
+
+    {% with WIDGET_ERROR_CLASS="is-invalid" %}
+        <form method="post" autocomplete="off" novalidate id="professor_form" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="row gx-2">
+                <div class="col-sm">
+                    <div class="input-group pb-2">
+                        <span class="input-group-text">{{ form.first_name.label_tag }}</span>
+                        {% render_field form.first_name class="form-control rounded-end" %}
+                        <div class="invalid-feedback">
+                            {{ form.first_name.errors|first }}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="input-group pb-2">
+                        <span class="input-group-text">{{ form.last_name.label_tag }}</span>
+                        {% render_field form.last_name class="form-control rounded-end" %}
+                        <div class="invalid-feedback">
+                            {{ form.last_name.errors|first }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row gx-2">
+                <div class="col-sm">
+                    <div class="input-group pb-2">
+                        <span class="input-group-text">{{ form.identification_type.label_tag }}</span>
+                        {% render_field form.identification_type class="form-select rounded-end" %}
+                        <div class="invalid-feedback">
+                            {{ form.identification_type.errors|first }}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="input-group pb-2">
+                        <span class="input-group-text">{{ form.identification_number.label_tag }}</span>
+                        {% render_field form.identification_number class="form-control rounded-end" %}
+                        <div class="invalid-feedback">
+                            {{ form.identification_number.errors|first }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row gx-2">
+                <div class="col-sm">
+                    <div class="input-group pb-2">
+                        <span class="input-group-text">{{ form.identification_front_image.label_tag }}</span>
+                        {% for field in form.identification_front_image %}
+                            {% if field.data.value %}
+                                <span class="form-control">
+                                    <a href="{{ object.identification_front_image.url }}" class="text-decoration-none">{{ object.id_front_image_name }}</a>
+                                </span>
+                                <div class="input-group-text rounded-end">
+                                    <input type="checkbox" name="identification_front_image-clear" id="identification_front_image-clear_id" class="form-check-input my-auto">
+                                    <label for="identification_front_image-clear_id" class="ms-2">Eliminar</label>
+                                </div>
+                            {% else %}
+                                {% render_field form.identification_front_image class="form-control rounded-end" %}
+                            {% endif %}
+                        {% endfor %}
+                        <div class="invalid-feedback">
+                            {{ form.identification_front_image.errors|first }}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="input-group pb-2">
+                        <span class="input-group-text">{{ form.identification_back_image.label_tag }}</span>
+                        {% for field in form.identification_back_image %}
+                            {% if field.data.value %}
+                                <span class="form-control">
+                                    <a href="{{ object.identification_back_image.url }}" class="text-decoration-none">{{ object.id_back_image_name }}</a>
+                                </span>
+                                <div class="input-group-text rounded-end">
+                                    <input type="checkbox" name="identification_back_image-clear" id="identification_back_image-clear_id" class="form-check-input my-auto">
+                                    <label for="identification_back_image-clear_id" class="ms-2">Eliminar</label>
+                                </div>
+                            {% else %}
+                                {% render_field form.identification_back_image class="form-control rounded-end" %}
+                            {% endif %}
+                        {% endfor %}
+                        <div class="invalid-feedback">
+                            {{ form.identification_back_image.errors|first }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center gx-2 pt-2">
+                {% include "go_back_button.html" %}
+                {% include "save_button.html" %}
+            </div>
+        </form>
+    {% endwith %}
+
+{% endblock card_body %}

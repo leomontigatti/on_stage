@@ -1,0 +1,57 @@
+{% extends "card.html" %}
+{% load i18n %}
+
+{% block card_body %}
+
+    {% if selected_schedule and not page_obj %}
+        <p class="m-2">
+            <i class="bi bi-exclamation-circle me-2"></i>
+            {% translate "There are no registered choreographies for the selected schedule." %} <a href="{% url 'music_list' event.pk %}" class="text-decoration-none">{% translate "Clear search" %}</a>.
+        </p>
+    {% elif page_obj %}
+        <div class="table-responsive-md">
+            <table class="table table-striped align-middle text-center">
+                <thead>
+                    <tr class="dark align-middle">
+                        <td scope="col" style="width: 9%;">{% translate "Order number" %}</td>
+                        <td scope="col">{% translate "Name" %}</td>
+                        <td scope="col">{% translate "Academy" %}</td>
+                        <td scope="col">{% translate "Category" %}</td>
+                        <td scope="col">{% translate "Dance mode" %}</td>
+                        <td scope="col" style="width: 9%;">{% translate "Actions" %}</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for object in page_obj %}
+                        <tr>
+                            <td>{{ object.order_number }}</td>
+                            <td>{{ object.name }}</td>
+                            <td>{{ object.academy.name }}</td>
+                            <td>{{ object.category }}</td>
+                            <td>{{ object.dance_mode.name }}</td>
+                            <td>
+                                {% if object.music_track %}
+                                    <a href="{{ object.music_track.url }}" data-bs-toggle="tooltip" data-bs-title="{% translate 'Download' %}" class="btn btn-outline-primary rounded-circle" download>
+                                        <i class="bi bi-file-earmark-arrow-down-fill"></i>
+                                    </a>
+                                {% else %}
+                                    <span class="btn btn-outline-secondary rounded-circle disabled">
+                                        <i class="bi bi-file-earmark-arrow-down-fill"></i>
+                                    </span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <p class="m-2">
+            <i class="bi bi-exclamation-circle me-2"></i>
+            {% translate "There are no registered choreographies for the selected event." %} <a href="{% url 'event_list' sender='music' %}" class="text-decoration-none">{% translate "Go back" %}</a>.
+        </p>
+    {% endif %}
+
+    {% include "pagination.html" %}
+
+{% endblock %}

@@ -1,0 +1,82 @@
+{% load static i18n %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="{% static 'staticfiles/images/os_icon.ico' %}"/>
+
+        {% include "bootstrap.html" %}
+
+        <title>On Stage | {% translate "Award certificate" %}</title>
+
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+            @import url('http://fonts.cdnfonts.com/css/haarlem-deco-demo');
+            @page {
+                size: landscape;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+            body {
+                background: rgb(255,255,255);
+                background: radial-gradient(circle, rgba(255,255,255,1) 21%, rgba(168,168,168,1) 100%);
+            }
+        </style>
+
+    </head>
+
+    <body>
+
+        <div class="d-flex justify-content-around">
+            <img class="m-3 p-3" src="{% static 'staticfiles/images/os_black_bg.png' %}" alt="" style="height: 215px; width: auto;">
+            <div class="m-3 align-self-center">
+                <span class="text-center" style="font-family: 'Haarlem Deco DEMO', sans-serif; font-size: 100px;">On Stage</span>
+                <br>
+                <span class="text-center" style="font-family: 'Haarlem Deco DEMO', sans-serif; font-size: 35px;">
+                    {% translate "CERTIFICATE OF PARTICIPATION" %}
+                </span>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-center mb-5">
+            <div style="width: 15%;"></div>
+            <p class="m-3" style="font-family: 'Comfortaa', cursive; line-height: 2; font-size: 25px;">
+                {% translate "This certificate is presented to" %} <b>{{ awarded.first_name }} {{ awarded.last_name }}</b>
+                {% translate "for participating in the event" %} <b>{{ event }}</b>
+                {% translate "held on" %} {{ event.city }}, {{ event.state }}, {{ event.country }}
+                {% translate "from" %} {{ event.start_date }} {% translate "to" %} {{ event.end_date }}
+                {% if award.award_type.min_average_score and award.award_type.max_average_score%}
+                    {% translate "being awarded with" %} <b>{{ award }}</b>
+                {% endif %}
+                {% translate "for the play" %} "<b>{{ choreography.name }}</b>".
+            </p>
+            <div style="width: 15%;"></div>
+        </div>
+
+        <div class="d-flex justify-content-center pt-5">
+            <div style="width: 250px;">
+                <div class="mb-2">
+                    <img src="{% static 'staticfiles/images/default_signature.png' %}" alt="" style="height: 90px; width: auto;">
+                </div>
+                <div style="height: 1px; background: black;"></div>
+                <p class="mt-2 text-center" style="font-family: 'Comfortaa', cursive; font-size: 15px;">{{ event.contact }}</p>
+            </div>
+        </div>
+
+        <div class="fixed-bottom" style="background-color: black;">
+            <div class="p text-center pt-2" style="font-family: 'Comfortaa', cursive; font-size: 10px; color: white;">
+                <b>{% translate "Judges" %}: </b>{{ judges_list|join:" - " }}
+            </div>
+            <div class="p text-center" style="font-family: 'Comfortaa', cursive; font-size: 8px; color:grey;">
+                {% translate "designed by" %} Cosmos © 2023
+            </div>
+        </div>
+
+    </body>
+</html>

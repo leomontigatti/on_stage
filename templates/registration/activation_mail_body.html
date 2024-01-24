@@ -1,0 +1,12 @@
+{% load i18n %}
+{% autoescape off %}
+
+{% translate "Hi" %}, {{ user.username.first_name|title }}!
+{% translate "To complete your registration, click the following link or paste it in your browser" %}:
+
+https://{{ domain }}{% url  "activate" uid token %}
+
+{% translate "Thank you" %}!
+{% translate "The On Stage team" %}.
+
+{% endautoescape %}

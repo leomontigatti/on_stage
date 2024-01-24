@@ -1,0 +1,135 @@
+{% extends "card.html" %}
+{% load static i18n %}
+
+{% block card_body %}
+
+    <div class="row gx-2">
+        <div class="col-sm">
+            <div class="input-group pb-2">
+                <span class="input-group-text">{% translate "Category" %}</span>
+                <span class="form-control">{{ object.category }}</span>
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="input-group pb-2">
+                <span class="input-group-text">{% translate "Dance mode" %}</span>
+                <span class="form-control">{{ object.dance_mode }}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row gx-2">
+        <div class="col-sm">
+            <div class="input-group pb-2">
+                <span class="input-group-text">{% translate "Name" %}</span>
+                <span class="form-control">{{ object.name }}</span>
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="input-group pb-2">
+                <span class="input-group-text">{% translate "Duration" %}</span>
+                <span class="form-control">{{ object.duration }}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row gx-2">
+        <div class="col-sm">
+            <div class="input-group pb-2">
+                <span class="input-group-text">{% translate "Music track" %}</span>
+                <span class="form-control">
+                    {% if object.music_track %}
+                        <a href="{{ object.music_track.url }}" class="text-decoration-none">
+                            {{ object.music_track_name }}
+                        </a>
+                    {% else %}
+                        <span class="text-warning">
+                            <i class="bi bi-exclamation-circle-fill me-2"></i>{% translate "Music track missing" %}
+                        </span>
+                    {% endif %}
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row gx-2 mt-2">
+        <div class="col-sm">
+            {% if object.professors.exists %}
+                <div class="table-responsive">
+                    <table class="table table-striped align-middle text-center">
+                        <thead>
+                            <tr class="dark">
+                                <td scope="col" colspan="2">{% translate "Professors" %}</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for professor in object.professors.all %}
+                                <tr>
+                                    <td>
+                                        <a href="{{ professor.get_absolute_url }}" class="text-decoration-none">
+                                            {{ professor }}
+                                        </a>
+                                    </td>
+                                    <td>{{ professor.identification_type }} {{ professor.identification_number }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                <p class="m-2">
+                    <i class="bi bi-exclamation-circle me-2"></i>
+                    {% translate "The choreography has no related professors yet." %}
+                </p>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="row gx-2">
+        <div class="col-sm">
+            {% if object.dancers.exists %}
+                <div class="table-responsive">
+                    <table class="table table-striped align-middle text-center">
+                        <thead>
+                            <tr class="dark">
+                                <td scope="col" colspan="3">{% translate "Dancers" %}</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for dancer in object.dancers.all %}
+                                <tr>
+                                    <td>
+                                        <a href="{{ dancer.get_absolute_url }}" class="text-decoration-none">
+                                            {{ dancer }}
+                                        </a>
+                                    </td>
+                                    <td>{{ dancer.identification_type }} {{ dancer.identification_number }}</td>
+                                    <td>{{ dancer.age }} {% translate "years old" %}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                <p class="m-2">
+                    <i class="bi bi-exclamation-circle me-2"></i>
+                    {% translate "The choreography has no related dancers yet." %}
+                </p>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="row justify-content-center gx-2 pt-2">
+        {% if not object.event.ended %}
+            {% include "go_back_button.html" %}
+            {% include "update_button.html" %}
+        {% else %}
+            <div class="col text-center">
+                <button type="button" onclick="javascript:history.back()" class="btn btn-outline-secondary">
+                    <i class="bi bi-arrow-return-left me-2"></i>{% translate "Go back" %}
+                </button>
+            </div>
+        {% endif %}
+    </div>
+
+{% endblock card_body %}

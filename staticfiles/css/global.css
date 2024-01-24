@@ -1,0 +1,101 @@
+.whatsapp {
+    color: #25D366;
+}
+
+.whatsapp:hover .bi-whatsapp:before {
+    color: var(--bs-success) !important;
+}
+
+.bi-exclamation-circle {
+    color: var(--bs-warning);
+}
+
+select[disabled] {
+    background-color: #FFFFFF !important;
+    color: #6c757d;
+    pointer-events: none;
+}
+
+tr.dark {
+    background-color: #212529;
+    color: #FFFFFF8C;
+}
+
+div.dark {
+    background-color: #212529;
+    color: #FFFFFF8C;
+}
+
+form.filters-form {
+    background-color: rgba(0, 0, 0, 0.05);
+    font-size: .8rem;
+}
+
+form.filters-form ul {
+    list-style: none;
+    padding: 0rem;
+}
+
+form.filters-form li {
+    margin: 0rem;
+}
+
+.selected {
+    color: black !important;
+    border-left: 1rem;
+    border-color: #212529;
+    border-left-width: 1rem;
+}
+
+.selected:hover {
+    cursor: default !important;
+}
+
+form.filters-form li:hover {
+    cursor: pointer;
+    color: black !important;
+}
+
+span[name="clear-filters"]:hover {
+    cursor: pointer;
+}
+
+.alert {
+    margin-bottom: 0 !important;
+}
+
+[readonly] {
+    background-color: inherit;
+    border: none;
+    width: inherit;
+}
+
+.readonly-score {
+    background-color: inherit;
+    border: none;
+    pointer-events: none;
+    cursor: inherit;
+}
+
+.teacher:hover {
+    transform: scale(1.05);
+}
+
+img.crop {
+    object-fit: cover;
+    width: 15rem;
+    height: 15rem;
+}
+
+a.disabled {
+    pointer-events: none;
+    cursor: default;
+}
+
+.invalid-checkbox {
+    width: 100%;
+    margin-top: -0.7rem !important;
+    margin-bottom: 0.7rem;
+    font-size: .875em;
+    color: var(--bs-danger-text);
+}

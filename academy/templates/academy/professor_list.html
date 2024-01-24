@@ -1,0 +1,42 @@
+{% extends "card.html" %}
+{% load i18n %}
+
+{% block card_body %}
+
+    {% if page_obj %}
+        <div class="table-responsive">
+            <table class="table table-striped align-middle text-center">
+                <thead>
+                    <tr class="dark">
+                        <td scope="col">{% translate "First name" %}</td>
+                        <td scope="col">{% translate "Last name" %}</td>
+                        <td scope="col">{% translate "Identification type" %}</td>
+                        <td scope="col">{% translate "Identification number" %}</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for object in page_obj %}
+                        <tr>
+                            <td>
+                                <a href="{{ object.get_absolute_url }}" class="text-decoration-none">
+                                    {{ object.first_name }}
+                                </a>
+                            </td>
+                            <td>{{ object.last_name }}</td>
+                            <td>{{ object.identification_type }}</td>
+                            <td>{{ object.identification_number }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <p class="m-2">
+            <i class="bi bi-exclamation-circle me-2"></i>
+            {% translate "No professors have yet been registered. You can start by clicking " %}<a href="{% url "professor_create" %}" class="text-decoration-none">{% translate "here" %}</a>.
+        </p>
+    {% endif %}
+
+    {% include "pagination.html" %}
+
+{% endblock card_body %}

@@ -1,0 +1,118 @@
+{% extends 'admin/base_site.html' %}
+{% load i18n admin_urls static admin_list %}
+
+{% block extrastyle %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/css/changelists.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+
+{% endblock extrastyle %}
+
+{% block usertools %}
+
+    {{ block.super }}
+
+{% endblock usertools %}
+
+{% block breadcrumbs %}
+
+    <div class="breadcrumbs">
+        <a href="{% url 'admin:index' %}">{% translate 'Home' %}</a>
+        &rsaquo; <a href="{% url 'admin:app_list' 'choreography' %}">{% translate 'Choreography' %}</a>
+        &rsaquo; <a href="{% url 'admin:choreography_choreography_changelist' %}">{% translate "Choreographies" %}</a>
+        {% if title %}
+            &rsaquo; {{ title }}
+        {% endif %}
+    </div>
+
+{% endblock breadcrumbs %}
+
+{% block content %}
+
+    <h3>
+        {% blocktranslate count choreographies_amount=choreographies_list.count %}{{ choreographies_amount }} choreography selected.{% plural %}{{ choreographies_amount }} choreographies selected.{% endblocktranslate %}
+    </h3>
+
+    <br>
+
+    <div id="content-main">
+        <div class="module filtered" id="changelist">
+            <div class="changelist-form-container">
+                <div class="results" style="overflow-x: auto;">
+                    <table id="result_list">
+                        <thead>
+                            <tr>
+                                <th scope="col" style="text-align: center;">
+                                    <div class="text">{% translate "Order number" %}</div>
+                                </th>
+                                <th scope="col" style="text-align: center;">
+                                    <div class="text">
+                                        <span>{% translate "New number" %}</span>
+                                    </div>
+                                </th>
+                                <th scope="col" style="padding-left: 7px;">
+                                    <div class="text">{% translate "Name" %}</div>
+                                </th>
+                                <th scope="col" style="padding-left: 7px;">
+                                    <div class="text">{% translate "Academy" %}</div>
+                                </th>
+                                <th scope="col" style="padding-left: 7px;">
+                                    <div class="text">{% translate "Category" %}</div>
+                                </th>
+                                <th scope="col" style="padding-left: 7px;">
+                                    <div class="text">{% translate "Dance mode" %}</div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="choreographiesTable" class="myTable">
+                            {% for choreography in choreographies_list %}
+                                <tr>
+                                    <td style="text-align: center; width: 10vw; vertical-align: middle;">
+                                        {% if not choreography.order_number %}
+                                            -
+                                        {% else %}
+                                            {{ choreography.order_number }}
+                                        {% endif %}
+                                    </td>
+                                    <td style="text-align: center; vertical-align: middle;">
+                                        <input type="number" style="width: 10vw;" id="{{ choreography.pk }}">
+                                    </td>
+                                    <td class="field-name" style="vertical-align: middle;">
+                                        <a href="/admin/main/choreography/{{ choreography.pk }}/change/?_changelist_filters=o%3D">
+                                            {{ choreography.name }}
+                                        </a>
+                                    </td>
+                                    <td class="field-academy nowrap" style="vertical-align: middle;">
+                                        {{ choreography.academy }}
+                                    </td>
+                                    <td class="field-category nowrap" style="vertical-align: middle;">
+                                        {{ choreography.category }}
+                                    </td>
+                                    <td class="field-category nowrap" style="vertical-align: middle;">
+                                        {{ choreography.dance_mode }}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="changelist-filter">
+                <h2 style="padding-top: 10px; padding-bottom: 10px;">{% translate "Actions" %}</h2>
+                <form action="{% url 'set_order_number' %}" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="choreographies_json" id="choreographies_json">
+                    <h3 style="text-align: center;">
+                        <i class="bi bi-arrow-right" style="margin-right: .5rem;"></i><input type="submit" name="set_new_order" value="{% translate "Save new order" %}">
+                        <br>
+                        <i class="bi bi-arrow-right" style="margin-right: .5rem;"></i><input type="submit" name="set_default_order" value="{% translate "Set default order" %}">
+                    </h3>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'choreography/js/set_order_number.js' %}"></script>
+
+{% endblock content %}
